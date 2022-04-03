@@ -109,18 +109,11 @@ p {
     display: inline-block;
     padding-inline: 2% ;
     width: 10%;
+    overflow-x: auto;
 }
-.img{   
+/* .img{   
    width: 60%;
    display: block;
    border: 2px solid blue;
    display: inline-block;
-}
-/* .fil{
-    display: inline;
-    border: 2px solid color green;
-} */
-/* .residentevil{
-    border: 2px solid yellow;
-    
 } */
