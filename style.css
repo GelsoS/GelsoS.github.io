@@ -26,6 +26,7 @@ h1 {
     box-shadow: 10px 8px rgb(60, 11, 238);
 }
 
+
 #botao {
     background-color: darkgreen;
     border-radius: 20px;
@@ -78,7 +79,7 @@ p {
     padding: 1% 2%;
 }
 .apresentacao{
-    width: 30%;
+    width: 20%;
     top: 20%;
     left: 21%;
     position: absolute;
@@ -94,15 +95,16 @@ p {
 .Musicas{
     color: black;
     background-color: aquamarine;
-    
+    margin: 2%;
     height: 200px;
     overflow-y: auto;
     overflow-x: auto;   
 }
 
-.filmes , .serie{
+.filmes , .serie {
+    margin: 2%;
     overflow-y: auto;
-    height: 250px;
+    height: 350px;
 
 }
 .menufilmes  {
@@ -110,10 +112,38 @@ p {
     padding-inline: 2% ;
     width: 10%;
     overflow-x: auto;
+    background-color: aquamarine;
+    
 }
-/* .img{   
-   width: 60%;
-   display: block;
-   border: 2px solid blue;
-   display: inline-block;
+.casa{    
+    width: 5%;
+    position:fixed;
+   float: left;
+   top: 580px;
+   background-color:aqua;
+   border-radius: 40%;
+   text-align: center;
+   color: blue;
+}
+.ajustaserie{
+    width: 10%;
+    display:inline-block ;
+    vertical-align:top;
+    padding: 1%;
+}
+/* .familia{
+    border: 2px solid yellow;
+
 } */
+.pessoas{
+    text-align: center;
+    /* border: 2px solid green; */
+    width: 20%;
+    display: inline-block;
+    padding: 2%;
+    border-radius: 20%;
+    vertical-align: top;
+}
+.foto{
+    border-radius: 20%;
+}
