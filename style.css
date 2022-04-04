@@ -4,7 +4,7 @@ body {
 
 #foto {
     border-radius: 50px;
-    left: 2px;   
+    left: 2%;   
 }
 
 h1 {
@@ -77,20 +77,22 @@ p {
     background-size: cover; 
     background-position: 45%; 
     padding: 1% 2%;
+    
 }
 .apresentacao{
     width: 20%;
     top: 20%;
     left: 21%;
     position: absolute;
-    text-align: center;    
+    text-align:left;    
 }
 
 .margin {
     margin: 2%;
 }
-.cormusica{
-    color: rgb(2, 57, 138);
+#cormusica{
+    color: rgb(16, 2, 138);
+    background-color: lightgreen;
 }
 .Musicas{
     color: black;
@@ -120,10 +122,11 @@ p {
     position:fixed;
    float: left;
    top: 580px;
-   background-color:aqua;
-   border-radius: 40%;
+   background-color:gray;
+   border-radius: 20%;
    text-align: center;
-   color: blue;
+   color:white;
+   text-decoration: none;
 }
 .ajustaserie{
     width: 10%;
@@ -131,10 +134,7 @@ p {
     vertical-align:top;
     padding: 1%;
 }
-/* .familia{
-    border: 2px solid yellow;
 
-} */
 .pessoas{
     text-align: center;
     /* border: 2px solid green; */
@@ -146,4 +146,10 @@ p {
 }
 .foto{
     border-radius: 20%;
+}
+.unoesc{
+    color: green;
+    text-decoration:none;
+    font-weight: 800;
+    background-color: white;
 }
