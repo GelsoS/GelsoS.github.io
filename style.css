@@ -2,13 +2,16 @@ body {
     background-color: rgb(197, 235, 222);
 }
 
-#foto {
+#foto  {
     border-radius: 50px;
-    left: 2%;   
+    left: 2%;
+    filter: drop-shadow(-2px 10px 20px #00acfc)
+    
 }
 
+
 h1 {
-    color:rgb(11, 0, 167);
+    color: rgb(11, 0, 167);
     text-shadow: 9px 8px rgb(243, 237, 237);
     font-family: monospace;
     font-weight: 1000;
@@ -35,7 +38,8 @@ h1 {
     text-decoration: none;
     box-shadow: inset -3px -5px rgb(18, 189, 18);
 }
-#botao:hover{
+
+#botao:hover {
     background-color: rgb(4, 128, 185);
 }
 
@@ -48,17 +52,22 @@ h4 {
 }
 
 
-.menu.ul, .menu li, .menu a{ 
-    list-style: none; 
-    display: inline; 
-    padding-inline: 1% 1%;   
+.menu.ul,
+.menu li,
+.menu a {
+    list-style: none;
+    display: inline;
+    padding-inline: 1% 1%;
 }
-.menu ul, li a:hover {
-    background-color:white;    
+
+.menu ul,
+li a:hover {
+    background-color: white;
 }
-.menu li:active{
+
+.menu li:active {
     color: aliceblue;
-    font-family:Arial, Helvetica, sans-serif;   
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
@@ -72,84 +81,146 @@ p {
 .mrrobot {
     border-radius: 20%;
 }
-.fundo{    
+
+.fundo {
     background-image: url(img/asphalt.jpg);
-    background-size: cover; 
-    background-position: 45%; 
+    background-size: cover;
+    background-position: 45%;
     padding: 1% 2%;
-    
+   filter: hue-rotate(50deg)
+  
 }
-.apresentacao{
+.apresentacao {
     width: 20%;
     top: 20%;
     left: 21%;
     position: absolute;
-    text-align:left;    
+    text-align: left;
 }
 
 .margin {
     margin: 2%;
 }
-#cormusica{
+
+#cormusica {
     color: rgb(16, 2, 138);
     background-color: lightgreen;
 }
-.Musicas{
+
+.Musicas {
     color: black;
     background-color: aquamarine;
     margin: 2%;
     height: 200px;
     overflow-y: auto;
-    overflow-x: auto;   
+    overflow-x: auto;
 }
 
-.filmes , .serie {
+.filmes,
+.serie {
     margin: 2%;
     overflow-y: auto;
     height: 350px;
 
 }
-.menufilmes  {
+
+.menufilmes {
     display: inline-block;
-    padding-inline: 2% ;
+    padding-inline: 2%;
     width: 10%;
     overflow-x: auto;
     background-color: aquamarine;
-    
+
 }
-.casa{    
+
+.casa {
     width: 5%;
-    position:fixed;
-   float: left;
-   top: 580px;
-   background-color:gray;
-   border-radius: 20%;
-   text-align: center;
-   color:white;
-   text-decoration: none;
+    position: fixed;
+    float: left;
+    top: 580px;
+    background-color: gray;
+    border-radius: 20%;
+    text-align: center;
+    color: white;
+    text-decoration: none;
 }
-.ajustaserie{
+
+.ajustaserie {
     width: 10%;
-    display:inline-block ;
-    vertical-align:top;
+    display: inline-block;
+    vertical-align: top;
     padding: 1%;
 }
 
-.pessoas{
+.pessoas {
     text-align: center;
-    /* border: 2px solid green; */
     width: 20%;
     display: inline-block;
     padding: 2%;
     border-radius: 20%;
     vertical-align: top;
 }
-.foto{
+
+.foto {
     border-radius: 20%;
 }
-.unoesc{
+
+.unoesc {
     color: green;
-    text-decoration:none;
+    text-decoration: none;
     font-weight: 800;
     background-color: white;
+}
+
+input[type="text"] {
+    width: 100%;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    margin: 8px 0;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: dodgerBlue;
+    box-shadow: 0 0 8px 0 dodgerBlue;
+}
+
+.inputWithIcon input[type="text"] {
+    padding-left: 40px;
+}
+
+.inputWithIcon {
+    position: relative;
+}
+
+.inputWithIcon i {
+    position: absolute;
+    left: 0;
+    top: 8px;
+    padding: 9px 8px;
+    color: #aaa;
+    transition: 0.3s;
+}
+
+.inputWithIcon input[type="text"]:focus+i {
+    color: dodgerBlue;
+}
+
+.inputWithIcon.inputIconBg input[type="text"]:focus+i {
+    color: #fff;
+    background-color: dodgerBlue;
+}
+#projetos{
+    margin-left: 40%;
+    font-style: oblique;
+    font-weight: bold;
+    text-align: center;
+    width: 200px;
+    height: 60px;
+    color: rgb(66, 206, 1);
+   font-size: 17px;    
+    
 }

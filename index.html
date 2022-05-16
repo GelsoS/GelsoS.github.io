@@ -15,21 +15,22 @@
 
 
 <body>
-    <div class="margin">
-        <div class="fundo">
+    <main class="margin">
+        <header class="fundo">
             <h1>Gelso Schwertz</h1>
             <img id="foto" src="img/gelso.jpg" alt="gelso" width="200">
-            <div class="apresentacao">
-                <p style="color:white  " >
-                    <em><strong>Bacharel em Administracao pela <a href="https://www.unoesc.edu.br/"> <span class="unoesc">UNOESC</span></a> ano 2014,<br> estudante desenvolvimento
+            <section class="apresentacao">
+                <p style="color:white  ">
+                    <em>
+                        <strong>Bacharel em Administracao pela <a href="https://www.unoesc.edu.br/"> <span
+                                    class="unoesc">UNOESC</span></a> ano 2014,<br> estudante desenvolvimento
                             web na trybe, turma 22,
-                            inicio em 16/marco/2022!</strong></em>
+                            inicio em 16/marco/2022!
+                        </strong>
+                    </em>
                 </p>
-            </div>
-        </div>
-
-
-
+            </section>
+        </header>
         <ul class="menu">
             <li><a id="inicio" class="cor" href="#sobre"> Sobre</a></li>
             <li><a class="cor" href="#habilidades">habilidades</a></li>
@@ -38,17 +39,14 @@
             <li><a class="cor" href="#musicas">musicas preferidas</a></li>
             <li><a class="cor" href="#filmes">melhores filmes</a> </li>
             <li><a class="cor" href="#series">series</a></li>
+            <li><a class="cor" href="#projetos">projetos</a></li>
         </ul>
-
-
         <br>
         <br>
-
         <!-- sobre mim -->
         <h4 id="sobre">sobre:</h4>
         <p> Sou alguem apaixonado pela <strong>tecnologia, ciencias e astronomia.</strong></em><br>
             Sou brasileiro, estou morando em Campos novos, Santa Catarina. </p>
-
         <br>
         <br>
         <!-- habilidades -->
@@ -63,10 +61,8 @@
             <br>
             <a id="botao" href="http://investing.com" target="_blank">Site que acompanho as noticias</a>
         </p>
-
         <br>
         <br>
-
         <!-- hobies -->
         <h4 id="hobbies">Meus hobbies: </h4>
         <p>
@@ -77,33 +73,42 @@
             quando
             posso.
         </p>
-        <div >
-            <h4 id="familia" >familia</h4>
-            <div class="familia">
+        <!-- projetos -->
+        <h4>Projetos feitos</h4>
+               
+          <select name="projetos" id="projetos">
+            <option value="Art">Arte com pixel</option>
+            <option value="color">Adivinhe a cor</option>
+            <option value="">funções de playground</option>
+          </select>
+       
+        <article>
+            <h4 id="familia">familia</h4>
+            <section class="familia">
                 <div class="pessoas">
                     <h3>Cleiton Schwertz</h3>
                     <p>Irmao mais velho, mora em concordia, SC</p>
-                    <img class="foto" src="img/cleiton.jpg" alt="cleiton" width="60%">
+                    <img class="foto" src="img/cleiton.jpg" style="filter: blur(5px);" alt="cleiton" width="60%">
                 </div>
                 <div class="pessoas">
                     <h3>Lucas Schwertz</h3>
                     <p>Irmao mais novo mora, mora em Fraiburgo, SC</p>
-                    <img class="foto" src="img/lucas.jpg" alt="lucas" width="40%">
+                    <img class="foto" src="img/lucas.jpg" alt="lucas" style="filter: blur(5px);" width="40%">
                 </div>
                 <div class="pessoas">
                     <h3>Lurdes Arno Schwertz</h3>
                     <p>Mae, mora em Campos Novos, SC</p>
-                    <img class="foto" src="img/lurdes.jpg" alt="lurdes" width="70%">
+                    <img class="foto" src="img/lurdes.jpg" alt="lurdes" style="filter: blur(5px);" width="70%">
                 </div>
                 <div class="pessoas">
                     <h3>Celso Schwertz</h3>
                     <p>Pai, mora em Campos Novos, SC</p>
-                    <img class="foto" src="img/celso.jpg" alt="celso" width="60%">
+                    <img class="foto" src="img/celso.jpg" alt="celso" style="filter: blur(5px);" width="60%">
                 </div>
-            </div>
-        </div>
+            </section>
+        </article>
         <h4 id="filmes"> Melhores filmes em minha opinião</h4>
-        <div class="filmes">
+        <section class="filmes">
             <ol>
                 <li>Resident Evil:
                     <div>
@@ -176,15 +181,15 @@
                 <li>Equilibrium</li>
                 <img src="img/equilibrium.jpeg" alt="equilibrium" width="6%">
                 <li><a href="https://www.youtube.com/watch?v=SRvJrxsrtsE" target="_blank">O
-                            substituto</a></li>
+                        substituto</a></li>
                 <img src="img/osubstituto.jpeg" alt="o substituto" width="6%">
                 <li> <a href="https://www.youtube.com/watch?v=KL-RvZYvFfM " target="_blank">
-                            Estudante</a></li>
+                        Estudante</a></li>
                 <img src="img/estudante.jpg" alt="estudante" width="6%">
                 <li>A pocura da felicidade</li>
                 <img src="img/aprocuradafelicidade.jpeg" alt="a procura dafelicidade" width="6%">
                 <li><a href="http://www.adorocinema.com/filmes/filme-11766/" target="_blank"> Um
-                            sonho de liberdade</a></li>
+                        sonho de liberdade</a></li>
                 <img src="img/umsonhodeliberdade.jpg" alt="um sonho de liberdade" width="6%">
                 <li>O operario</li>
                 <img src="img/ooperario.jpg" alt="o operario" width="6%">
@@ -228,8 +233,8 @@
                 <li><span class="cormusica">12 anos de escravidao</span></li>
                 <img src="img/12anosdeesravidao.jpg" alt="12 anos" width="6%">
             </ol>
-        </div>
-        <div>
+        </section>
+        <section>
             <h4 id="series">Melhores series de todos os tempos</h4>
             <div>
                 <div>
@@ -326,10 +331,9 @@
                 </div>
             </div>
 
-        </div>
-
+        </section>
         <h4 id="musicas"> musicas preferidas</h4>
-        <div class="Musicas">
+        <section class="Musicas">
             <ol>
                 <li> <span class="cormusica"> Still Loving You</span></li>
                 <li>a-ha - Take On Me (Official Video)</li>
@@ -397,10 +401,16 @@
                 <li>Whitney Houston - All The Man That I Need</li>
                 <li>Yves LaRock - Rise Up</li>
             </ol>
-        </div>
+        </section>
         <h3><a href="#inicio" class="casa">inicio:</a> </h3>
-    </div>
+        <footer>
+            <div class="inputWithIcon">
+                <input type="text" placeholder="Your name">
+                <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
+            </div>      
 
+        </footer>
+    </main>
 </body>
 
 </html>
