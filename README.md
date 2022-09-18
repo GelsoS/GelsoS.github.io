@@ -1,2 +1,0 @@
-# GelsoS.github.io
-paginas 
