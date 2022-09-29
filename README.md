@@ -1,2 +1,2 @@
-# GelsoS.github.io
+# Gelso Schwertz
 Projetos pessoais:
