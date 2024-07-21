@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Conversor de Bases</title>
+</head>
+
+<body>
+    <h2>Digite um valor sendo Decimal, Hexadecimal ou binario</h2>
+    <div class="container">
+        <div class="inputs">
+            <select name="select">
+                <option disabled selected>Selecione entrada</option>
+                <option name="Hexadecimal">Hexadecimal</option>
+                <option name="Decimal">Decimal</option>
+                <option name="Binario">Binario</option>
+            </select>
+            <input type="text" name="input" id="input" placeholder="entrada">
+            <button type="submit" disabled>Converter</button>
+        </div>
+        <div class="output">
+            <h3>Hexadecimal: <span id="Hexadecimal"></span></h3>
+            <h3>Decimal: <span id="Decimal"></span></h3>
+            <h3>Binario: <span id="Binario"></span></h3>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+
+</html>
