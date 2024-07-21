@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Altura total da janela de visualização */
+  font-family: Arial, sans-serif; /* Fonte padrão */
+  text-align: center;
+  color: #333;
+  background: #ccc;
+}
+
+.user {
+  display: inline-flex;
+}
+
+.user div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sobre fieldset {
+  border: 2px solid #050505; /* Define a cor e a espessura da borda */
+  padding: 20px; /* Espaçamento interno para melhor visualização */
+  margin: 20px; /* Espaçamento externo */
+  border-radius: 8px; /* Bordas arredondadas */
+  position: relative; /* Para manipular a posição do legend */
+}
+
+.sobre fieldset legend {
+  padding: 0 10px; /* Espaçamento interno do texto da legenda */
+  font-weight: bold; /* Deixar o texto da legenda em negrito */
+}
+
+header {
+  text-align: center;
+  background-color: #84b6e6;
+}
+
+header img {
+  margin-top: 20px;
+  width: 150px;
+  height: 150px;
+  border-radius: 5%;
+}
+
+.projetos {
+  display: flex;
+  overflow-x: auto;
+  margin-bottom: 50px;
+}
+
+.projeto {
+  padding: 15px;
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
+  height: max-content;
+  flex-wrap: wrap;
+}
+
+.projetos img {
+  width: 150px;
+  height: 150px;
+  border-radius: 5%;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin: 1rem 0;
+}
+
+header p {
+  font-size: 1.2rem;
+}
+
+main {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.projeto a {
+  display: flex;
+  text-decoration: none;
+  margin-top: 10px;
+  width: 150px;
+  height: 39px;
+  align-items: center;
+  justify-content: center;
+  background-color: midnightblue;
+  color: white;
+  font-weight: 500;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.app {
+  width: 350px;
+  height: 250px;
+  border-radius: 5%;
+}
+
+#curriculo a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #4caf50;
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+#curriculo a:hover {
+  background-color: #45a049;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  background-color: #333;
+  color: white;
+  width: 100%;
+  bottom: 0;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  color: #0077b5;
+  text-decoration: none;
+  font-size: 1.2em; /* Ajuste o tamanho da fonte conforme necessário */
+}
+
+.social-link .fa-linkedin {
+  color: #0077b5;
+}
+
+.social-link i {
+  margin-right: 8px; /* Espaçamento entre ícone e texto */
+}
+.social-link {
+  color: #000;
+}
+/* Estilo para o link do GitHub */
+.social-link .fa-github {
+  color: #333;
+}
+
+.social-link .fa-github i {
+  color: #333; /* Cor do ícone do GitHub */
+}
