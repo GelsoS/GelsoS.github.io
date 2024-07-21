@@ -5,6 +5,26 @@ const hexa = document.getElementById('Hexadecimal')
 const Decimal = document.getElementById('Decimal')
 const binario = document.getElementById('Binario')
 
+select.addEventListener('change', () => {
+    if (select.value === 'Decimal' || select.value === 'Binario' ) {
+        input.setAttribute('type', 'number');
+    } else {
+        input.setAttribute('type', 'text');
+    }
+});
+
+// Função para ativar ou desativar o input com base na seleção do select
+function toggleInput() {
+    if (select.value !== 'Selecione entrada') {
+        input.removeAttribute("disabled");
+    } else {
+        input.setAttribute("disabled", 'true');
+    }
+}
+
+// Adiciona um listener para o evento de mudança no select
+select.addEventListener('change', toggleInput);
+
 input.addEventListener('keyup', () => {
     if (input.value.trim() !== '' && select.value != 'Selecione') {
         btn.removeAttribute('disabled');
@@ -58,3 +78,6 @@ btn.addEventListener('click', () => {
     input.value = ''
     btn.disabled = true
 })
+
+// Inicialmente, desabilita o input
+input.setAttribute("disabled", true);

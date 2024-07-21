@@ -26,7 +26,7 @@ select option {
     background-color: #ccc;
 }
 
-input[type="text"] {
+input {
     padding: 5px;
     font-size: 16px;
     margin-left: 10px;
