@@ -160,3 +160,25 @@ footer {
 .social-link .fa-github i {
   color: #333; /* Cor do ícone do GitHub */
 }
+
+@media screen and (max-width: 720px) {
+  iframe {
+    width: 100%;
+  }
+  .vd {
+    width: 100%;
+    height: 100%;
+  }
+
+  .projetos img {
+    width: auto;
+  }
+  section.projetos {
+    margin: 20px;
+  }
+
+  main {
+    padding: 0;
+    width: 100%;
+  }
+}
