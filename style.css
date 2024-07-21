@@ -17,6 +17,9 @@ body {
 .user {
   display: inline-flex;
 }
+.user span {
+  font-style: italic;
+}
 
 .user div {
   display: flex;
@@ -25,9 +28,7 @@ body {
 }
 
 .sobre fieldset {
-  border: 2px solid #050505; /* Define a cor e a espessura da borda */
   padding: 20px; /* Espaçamento interno para melhor visualização */
-  margin: 20px; /* Espaçamento externo */
   border-radius: 8px; /* Bordas arredondadas */
   position: relative; /* Para manipular a posição do legend */
 }
@@ -38,9 +39,12 @@ body {
 }
 
 header {
+  background-image: url("./img/bg.jpeg");
+  background-size: cover;
   text-align: center;
-  background-color: #84b6e6;
+  color: #fff;
 }
+
 
 header img {
   margin-top: 20px;
@@ -56,12 +60,15 @@ header img {
 }
 
 .projeto {
-  padding: 15px;
+  padding: 5px;
   display: flex;
   width: fit-content;
   flex-direction: column;
   height: max-content;
   flex-wrap: wrap;
+  border: solid 1px #696969;
+  border-radius: 4px;
+  margin: 10px;
 }
 
 .projetos img {
@@ -105,9 +112,8 @@ h2 {
   text-decoration: none;
 }
 .app {
-  width: 350px;
-  height: 250px;
-  border-radius: 5%;
+  width: 224px;
+  height: 150px;
 }
 
 #curriculo a {
@@ -161,20 +167,36 @@ footer {
   color: #333; /* Cor do ícone do GitHub */
 }
 
+.contato {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 250px;
+  margin: 20px;
+
+}
+.vd {
+  display: flex;
+  justify-content: space-between; 
+}
+
 @media screen and (max-width: 720px) {
   iframe {
     width: 100%;
   }
   .vd {
-    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+    width:fit-content;
     height: 100%;
   }
 
-  .projetos img {
-    width: auto;
+  .py {
+    flex-direction: column;
   }
+
   section.projetos {
-    margin: 20px;
+    margin: 5px;
   }
 
   main {
