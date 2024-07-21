@@ -39,7 +39,7 @@ body {
 }
 
 header {
-  background-image: url("img/bg.jpeg");
+  background-image: url("./img/bg.jpeg");
   background-size: cover;
   text-align: center;
   color: #fff;
