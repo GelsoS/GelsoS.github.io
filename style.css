@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 
 body {
@@ -44,7 +44,6 @@ header {
   text-align: center;
   color: #fff;
 }
-
 
 header img {
   margin-top: 20px;
@@ -172,11 +171,84 @@ footer {
   justify-content: space-between;
   width: 250px;
   margin: 20px;
-
 }
+
 .vd {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
+}
+
+summary {
+  position: relative;
+}
+summary::marker {
+  content: none;
+}
+summary::before,
+summary::after {
+  content: "";
+}
+summary::before,
+summary::after {
+  width: 0.75em;
+  height: fit-content;
+  border-bottom: 2px solid;
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 0;
+  transform: translateY(-50%);
+  transition: 200ms;
+}
+summary::after {
+  transform: rotate(90deg);
+  transform-origin: 50% 50%;
+}
+[open] summary::after {
+  transform: rotate(0deg);
+}
+
+details {
+  color: #333;
+  /* border: 1px solid; */
+  padding: 0 1rem;
+  background: white;
+  border-radius: 5px;
+  transition: 50ms;
+}
+details + details {
+  border-top: none;
+}
+details[open] {
+  padding-bottom: 1em;
+}
+details a{
+  margin: 30px;
+  color: #fff;
+  font-style: italic;
+  text-decoration: none;
+  padding: 10px;
+  background: #3611db;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+summary {
+  padding: 1rem 2em 1rem 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.preview-container {
+  margin-top: 20px;
+  width: 100%;
+  height: 100vh; /* Ajuste a altura conforme necessário */
+  overflow: hidden; /* Ocultar qualquer conteúdo que ultrapasse o tamanho do container */
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none; /* Remover a borda padrão do iframe */
 }
 
 @media screen and (max-width: 720px) {
@@ -186,8 +258,7 @@ footer {
   .vd {
     display: flex;
     justify-content: space-between;
-    
-    width:fit-content;
+    width: 90%;
     height: 100%;
   }
 
@@ -202,5 +273,8 @@ footer {
   main {
     padding: 0;
     width: 100%;
+  }
+  .projeto .app{
+    width: 330px;
   }
 }
