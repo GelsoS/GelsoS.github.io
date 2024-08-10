@@ -1,0 +1,150 @@
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #464444;
+}
+
+#scoreHuman,
+#scoreComputer {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.game-container {
+  text-align: center;
+}
+
+.scoreboard {
+  margin-bottom: 10px;
+}
+
+.scoreboard div {
+  font-size: 1.2em;
+  margin: 5px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 0; /* Remove o espaçamento entre as células */
+  margin-bottom: 10px;
+  position: relative; /* Adicione position relative para a posição absoluta das linhas */
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  border: 1px solid #000; /* Linha simples */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  cursor: pointer;
+  position: relative;
+}
+
+.cell:hover {
+  background-color: #e0e0e0;
+}
+
+/* Estilo para as linhas de vitória */
+.line-horizontal-middle-line {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background: red;
+  top: 50%;
+  left: 0;
+  /* transform: translateY(-50%); */
+}
+
+.line-horizontal-top-line {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background: red;
+  top: 15%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.line-horizontal-bottom-line {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background: red;
+  bottom: 20%;
+}
+
+.line-vertical-middle-line {
+  position: absolute;
+  width: 5px;
+  height: 100%;
+  background: red;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.line-vertical-left-line {
+  position: absolute;
+  width: 5px;
+  height: 100%;
+  background: red;
+  left: 15%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.line-vertical-right-line {
+  position: absolute;
+  width: 5px;
+  height: 100%;
+  background: red;
+  left: 85%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.line-diagonal1 {
+  position: absolute;
+  width: 140%; /* Ajusta a largura da linha diagonal */
+  height: 5px;
+  background: red;
+  transform: rotate(45deg);
+  transform-origin: 0 0;
+  /* top: -50%; */
+  /* left: -50%; */
+}
+
+.line-diagonal2 {
+  position: absolute;
+  width: 140%; /* Ajusta a largura da linha diagonal */
+  height: 5px;
+  background: red;
+  transform: rotate(-45deg);
+  transform-origin: 100% 0;
+  /* top: -50%;  */
+  left: -40%;
+}
+
+#message {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  color: #48e704;
+  font-size: xx-large;
+}
+
+#reset {
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+}
