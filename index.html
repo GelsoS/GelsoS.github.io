@@ -28,7 +28,7 @@
       <div class="user">
         <img src="img/gelso-removebg-preview.png" alt="Foto de Gelso" />
         <div style="justify-content: center">
-          <h2>Gelso Schwertz</h2>
+          <h2 contenteditable="true">Gelso Schwertz</h2>
           <span contenteditable="true">Desenvolvedor</span>
         </div>
       </div>
@@ -62,59 +62,175 @@
             pela tecnologia, estou à disposição para colaborar com seus
             projetos.
           </p>
+          <div class="info">
           <section id="curriculo">
             <a href="CV.pdf" download>Baixar Currículo</a>
           </section>
+          <section id="curriculo">
+            <a href="./certificates/index.html" >Certificados</a>
+          </section>
+        </div>
         </fieldset>
       </div>
       <br />
       <details>
         <summary>App de Musicas</summary>
         <p>
-          Neste projeto foi criado o TrybeTunes, uma aplicação capaz de
-          reproduzir músicas das mais variadas bandas e artistas, criar uma
-          lista de músicas favoritas e editar o perfil da pessoa usuária logada.
-          Essa aplicação é capaz de: Fazer login; Pesquisar por uma banda ou
-          artista; Listar os álbuns disponíveis dessa banda ou artista;
-          Visualizar as músicas de um álbum selecionado; Reproduzir uma prévia
-          das músicas deste álbum; Favoritar e desfavoritar músicas; Ver a lista
-          de músicas favoritas; Ver o perfil da pessoa logada; Editar o perfil
-          da pessoa logada.
-        </p><br>
-        <a href="https://trybewallet-puce.vercel.app/search">TrybeTunes</a>
+          Neste projeto foi criado o <u>TrybeTunes</u>, uma aplicação capaz de
+          reproduzir músicas das mais variadas bandas e artistas, voce sera
+          capaz de:
+        </p>
+        <div class="ul">
+          <ul>
+            <li>Fazer login</li>
+            <li>Buscar por artistas e bandas</li>
+            <li>Buscar por músicas</li>
+            <li>Reproduzir músicas</li>
+            <li>Adicionar músicas a uma playlist</li>
+            <li>Remover músicas da playlist</li>
+            <li>Ver detalhes da música</li>
+          </ul>
+        </div>
+        <br />
+        <a href="https://trybe-tunes-puce.vercel.app/">TrybeTunes</a>
         <div class="preview-container">
-          <iframe src="https://trybewallet-puce.vercel.app/" frameborder="0"></iframe>
+          <iframe
+            src="https://trybe-tunes-puce.vercel.app/"
+            frameborder="0"
+          ></iframe>
+        </div>
+      </details>
+      <br />
+      <details>
+        <summary>Carteira online</summary>
+        <p>
+          Neste projeto, desenvolvi uma
+          <u>Carteira online</u> com um conversor de moedas. Utilizando esta
+          aplicação, um usuário deverá ser capaz de:
+        </p>
+        <br />
+        <div class="ul">
+          <ul>
+            <li>Adicionar, remover e editar um gasto.</li>
+            <li>Visualizar uma tabela com seus gastos.</li>
+            <li>
+              Visualizar o total de gastos convertidos para uma moeda de sua
+              escolha.
+            </li>
+          </ul>
+          <br />
+          <b>Habilidades utilizadas Durante o desenvolvimento deste projeto</b>
+          <ul>
+            <li>Criar um store Redux em aplicações React.</li>
+            <li>Criar reducers no Redux em aplicações React.</li>
+            <li>Criar actions no Redux em aplicações React.</li>
+            <li>Criar dispatchers no Redux em aplicações React.</li>
+            <li>Conectar Redux aos componentes React.</li>
+            <li>
+              Criar actions assíncronas na sua aplicação React que faz uso de
+              Redux.
+            </li>
+          </ul>
+        </div>
+        <br />
+        <a href="https://trybe-wallet-xi-three.vercel.app/">Trybe Wallet</a>
+        <div class="preview-container">
+          <iframe
+            src="https://trybe-wallet-xi-three.vercel.app/"
+            frameborder="0"
+          ></iframe>
+        </div>
+      </details>
+      <br />
+      <details>
+        <summary>Shop de carros</summary>
+        <p>
+          Neste projeto, desenvolvi uma aplicacao backend com TypeScript
+          <u>Shop de carros</u> onde foi aplicado os princípios de Programação
+          Orientada a Objetos (POO) para a construção de uma API com CRUD para
+          gerenciar uma concessionária de veículos. Isso foi feito utilizando o
+          banco de dados MongoDB através do framework do Mongoose.
+        </p>
+        <br />
+        <a href="https://github.com/GelsoS/CarShop">Car Shop</a><br/><br/>
+        <img src="./img/CARSHOP.png" alt="carshop" width="300px" 
+        onclick="this.classList.toggle('fullscreen')"/>
+        </div>
+      </details>
+      <br/>
+      <details>
+        <summary>TFC</summary>
+        <p>
+          Aplicacao FullStack com TypeScript <u>🚧 TFC Trybe Futebol Clube! 🚧</u> é um site informativo sob partidas e 
+          classificações de futebol! soccer.
+        </p><br>
+        <p>
+          Foi desenvolvido uma API (utilizando o método TDD) e também integrado - 
+          através do docker-compose - as aplicações para que elas funcionem consumindo um banco de dados.
+        </p><br>
+        <p>
+          Nesse projeto, foi construido um back-end dockerizado utilizando modelagem de dados através do Sequelize.
+          O desenvolvimento respeita regras de negócio providas no projeto e sua API é capaz de ser consumida por
+          um front-end. 
+        </p> <br>  
+        <p>  
+          Para adicionar uma partida é necessário ter um token, portanto a pessoa deverá
+          estar logada para fazer as alterações. Teremos um relacionamento entre as tabelas teams e matches para 
+          fazer as atualizações das partidas.
+        </p> <br>
+        <p>
+          O back-end implementa regras de negócio para popular adequadamente a
+          tabela disponível no front-end que será exibida para a pessoa usuária do sistema.
+        </p>
+        <br />
+        <a href="https://github.com/GelsoS/TFC">TFC</a><br/><br/>
+        <img src="./img/tfc.png" alt="carshop" width="300px" 
+        onclick="this.classList.toggle('fullscreen')"/>
+        </div>
+      </details>
+      <br/>
+      <details>
+        <summary>App de Delivery</summary>
+        <p>
+          Projeto em grupo foi desenvolvido um app de delivery para uma distribuidora de bebidas.
+          Neste projeto, desenvolvido uma aplicacao fronted e backend 
+          <u>App de Delivery</u> onde para a construção de uma API com CRUD utilizando sequelize.
+        </p>
+        <br />
+        <a href="https://github.com/GelsoS/delivery-app">Car Shop</a><br/><br/>
+        <img src="./img/delivery.png" width="300px" 
+        onclick="this.classList.toggle('fullscreen')"/>
         </div>
       </details>
       <br/>
       <h2>Projetos Vanilla</h2>
       <section class="projetos">
         <div class="projeto">
-          <img src="img/conversor.png" alt="conversor" srcset="" />
+          <img src="img/conversor.png" alt="conversor"/>
           <a href="conversorBases/index.html">switch numbers</a>
         </div>
         <div class="projeto">
-          <img src="img/romanos.png" alt="conversor" srcset="" />
+          <img src="img/romanos.png" alt="conversor"/>
           <a href="converter/index.html">numeros romanos</a>
         </div>
         <div class="projeto">
-          <img src="img/jogo.png" alt="conversor" srcset="" />
+          <img src="img/jogo.png" alt="conversor"/>
           <a href="jogo/index.html">jogo da velha</a>
         </div>
         <div class="projeto">
-          <img src="img/cubo.png" alt="conversor" srcset="" />
+          <img src="img/cubo.png" alt="conversor"/>
           <a href="cubo/index.html">cubo quente</a>
         </div>
         <div class="projeto">
-          <img src="img/horas.png" alt="conversor" srcset="" />
+          <img src="img/horas.png" alt="conversor"/>
           <a href="horas/index.html">horas</a>
         </div>
         <div class="projeto">
-          <img src="img/loading.png" alt="conversor" srcset="" />
+          <img src="img/loading.png" alt="conversor"/>
           <a href="loading/index.html">loading...</a>
         </div>
         <div class="projeto">
-          <img src="img/matrix.png" alt="conversor" srcset="" />
+          <img src="img/matrix.png" alt="conversor"/>
           <a href="matrix/index.html">Matrix</a>
         </div>
       </section>
