@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drum</title>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' 'unsafe-inline' https://fonts.gstatic.com; img-src 'self' data: blob: https://pfst.cf2.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com; media-src 'self' data: blob: https://pfst.cf2.poecdn.net https://i.imgur.com https://wikimedia.org; frame-src 'self' https://www.youtube.com; upgrade-insecure-requests; block-all-mixed-content;"
+    />
+    <style>
+      body {
+        background-color: #0d0144;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        font-family: "Tomaho", sans-serif;
+      }
+      .drum-machine {
+        background-color: #260040;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(2, 83, 175, 0.3);
+      }
+      h1 {
+        text-align: center;
+        color: #1273e2;
+        margin-bottom: 20px;
+      }
+      .grid-container {
+        display: flex;
+      }
+      .labels {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-right: 10px;
+        font-weight: bold;
+        color: #1475f5;
+      }
+      .grid-wrapper {
+        display: flex;
+        flex-direction: column;
+      }
+      .beat-numbers {
+        display: grid;
+        grid-template-columns: repeat(16, 1fr);
+        gap: 5px;
+        margin-bottom: 5px;
+      }
+      .beat-number {
+        text-align: center;
+        font-size: 12px;
+        color: #ff8080;
+        width: 30px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(16, 1fr);
+        gap: 5px;
+      }
+      .cell {
+        width: 30px;
+        height: 30px;
+        background-color: #000980;
+        border: 1px solid #023270;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .cell.active {
+        background-color: dodgerblue;
+      }
+      .cell.playing {
+        box-shadow: 0 0 10px #00ff62;
+      }
+      .controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+      }
+      button {
+        background-color: #128d02;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      button:hover {
+        background-color: #4e8a00;
+      }
+      input[type="range"] {
+        width: 200px;
+      }
+      #tempoValue {
+        color: #1475f5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="drum-machine">
+      <h1>16-Step Drum Machine</h1>
+      <div class="grid-container">
+        <div class="labels">
+          <div>Hi-Hat</div>
+          <div>Snare</div>
+          <div>Kick</div>
+          <div>Clap</div>
+          <div>Tom</div>
+          <div>Cymbal</div>
+        </div>
+        <div class="grid-wrapper">
+          <div class="beat-numbers">
+            <div class="beat-number">1</div>
+            <div class="beat-number">2</div>
+            <div class="beat-number">3</div>
+            <div class="beat-number">4</div>
+            <div class="beat-number">5</div>
+            <div class="beat-number">6</div>
+            <div class="beat-number">7</div>
+            <div class="beat-number">8</div>
+            <div class="beat-number">9</div>
+            <div class="beat-number">10</div>
+            <div class="beat-number">11</div>
+            <div class="beat-number">12</div>
+            <div class="beat-number">13</div>
+            <div class="beat-number">14</div>
+            <div class="beat-number">15</div>
+            <div class="beat-number">16</div>
+          </div>
+          <div class="grid" id="grid"></div>
+        </div>
+      </div>
+      <div class="controls">
+        <button id="playButton">Play</button>
+        <button id="stopButton">Stop</button>
+        <button id="randomizeButton">Randomize</button>
+        <input type="range" id="tempoSlider" min="60" max="180" value="140" />
+        <span id="tempoValue">140 BPM</span>
+      </div>
+    </div>
+    <script>
+      let audioContext;
+      const grid = document.getElementById("grid");
+      const playButton = document.getElementById("playButton");
+      const stopButton = document.getElementById("stopButton");
+      const randomizeButton = document.getElementById("randomizeButton");
+      const tempoSlider = document.getElementById("tempoSlider");
+      const tempoValue = document.getElementById("tempoValue");
+
+      const drumSounds = ["hihat", "snare", "kick", "clap", "tom", "cymbal"];
+      const pattern = [
+        [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
+        [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+        [1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      ];
+      let isPlaying = false;
+      let currentBeat = 0;
+      let tempo = 140;
+
+      function initAudio() {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      }
+
+      function createNoiseBuffer() {
+        const bufferSize = audioContext.sampleRate * 2;
+        const buffer = audioContext.createBuffer(
+          1,
+          bufferSize,
+          audioContext.sampleRate
+        );
+        const output = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+          output[i] = Math.random() * 2 - 1;
+        }
+        return buffer;
+      }
+
+      function createDrumSound(type) {
+        if (!audioContext) initAudio();
+        const gainNode = audioContext.createGain();
+        gainNode.connect(audioContext.destination);
+
+        switch (type) {
+          case "hihat":
+            const hihatSource = audioContext.createBufferSource();
+            hihatSource.buffer = createNoiseBuffer();
+
+            const hihatFilter = audioContext.createBiquadFilter();
+            hihatFilter.type = "highpass";
+            hihatFilter.frequency.value = 7000;
+
+            hihatSource.connect(hihatFilter);
+            hihatFilter.connect(gainNode);
+
+            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(
+              0.01,
+              audioContext.currentTime + 0.1
+            );
+
+            hihatSource.start();
+            hihatSource.stop(audioContext.currentTime + 0.1);
+            break;
+
+          case "snare":
+            const snareNoise = audioContext.createBufferSource();
+            snareNoise.buffer = createNoiseBuffer();
+
+            const snareFilter = audioContext.createBiquadFilter();
+            snareFilter.type = "highpass";
+            snareFilter.frequency.value = 1000;
+
+            const snareEnvelope = audioContext.createGain();
+            snareEnvelope.gain.setValueAtTime(1, audioContext.currentTime);
+            snareEnvelope.gain.exponentialRampToValueAtTime(
+              0.01,
+              audioContext.currentTime + 0.2
+            );
+
+            const snareOscillator = audioContext.createOscillator();
+            snareOscillator.type = "triangle";
+            snareOscillator.frequency.value = 100;
+
+            snareNoise.connect(snareFilter);
+            snareFilter.connect(snareEnvelope);
+            snareOscillator.connect(snareEnvelope);
+            snareEnvelope.connect(gainNode);
+
+            gainNode.gain.setValueAtTime(0.7, audioContext.currentTime);
+
+            snareNoise.start();
+            snareOscillator.start();
+            snareNoise.stop(audioContext.currentTime + 0.2);
+            snareOscillator.stop(audioContext.currentTime + 0.2);
+            break;
+
+          case "kick":
+            const kickOscillator = audioContext.createOscillator();
+            kickOscillator.type = "sine";
+
+            const kickEnvelope = audioContext.createGain();
+            kickEnvelope.gain.setValueAtTime(1, audioContext.currentTime);
+            kickEnvelope.gain.exponentialRampToValueAtTime(
+              0.001,
+              audioContext.currentTime + 0.5
+            );
+
+            kickOscillator.frequency.setValueAtTime(
+              150,
+              audioContext.currentTime
+            );
+            kickOscillator.frequency.exponentialRampToValueAtTime(
+              0.001,
+              audioContext.currentTime + 0.5
+            );
+
+            kickOscillator.connect(kickEnvelope);
+            kickEnvelope.connect(gainNode);
+
+            gainNode.gain.setValueAtTime(1, audioContext.currentTime);
+
+            kickOscillator.start();
+            kickOscillator.stop(audioContext.currentTime + 0.5);
+            break;
+
+          case "clap":
+            const clapNoise = audioContext.createBufferSource();
+            clapNoise.buffer = createNoiseBuffer();
+
+            const clapFilter = audioContext.createBiquadFilter();
+            clapFilter.type = "bandpass";
+            clapFilter.frequency.value = 1500;
+            clapFilter.Q.value = 1;
+
+            const clapEnvelope = audioContext.createGain();
+            clapEnvelope.gain.setValueAtTime(0, audioContext.currentTime);
+            clapEnvelope.gain.linearRampToValueAtTime(
+              1,
+              audioContext.currentTime + 0.01
+            );
+            clapEnvelope.gain.exponentialRampToValueAtTime(
+              0.01,
+              audioContext.currentTime + 0.2
+            );
+
+            clapNoise.connect(clapFilter);
+            clapFilter.connect(clapEnvelope);
+            clapEnvelope.connect(gainNode);
+
+            gainNode.gain.setValueAtTime(0.7, audioContext.currentTime);
+
+            clapNoise.start();
+            clapNoise.stop(audioContext.currentTime + 0.2);
+            break;
+
+          case "tom":
+            const tomOscillator = audioContext.createOscillator();
+            tomOscillator.type = "sine";
+
+            const tomEnvelope = audioContext.createGain();
+            tomEnvelope.gain.setValueAtTime(1, audioContext.currentTime);
+            tomEnvelope.gain.exponentialRampToValueAtTime(
+              0.01,
+              audioContext.currentTime + 0.4
+            );
+
+            tomOscillator.frequency.setValueAtTime(
+              100,
+              audioContext.currentTime
+            );
+            tomOscillator.frequency.exponentialRampToValueAtTime(
+              45,
+              audioContext.currentTime + 0.4
+            );
+
+            tomOscillator.connect(tomEnvelope);
+            tomEnvelope.connect(gainNode);
+
+            gainNode.gain.setValueAtTime(0.7, audioContext.currentTime);
+
+            tomOscillator.start();
+            tomOscillator.stop(audioContext.currentTime + 0.4);
+            break;
+
+          case "cymbal":
+            const cymbalNoise = audioContext.createBufferSource();
+            cymbalNoise.buffer = createNoiseBuffer();
+
+            const cymbalFilter = audioContext.createBiquadFilter();
+            cymbalFilter.type = "highpass";
+            cymbalFilter.frequency.value = 8000;
+
+            const cymbalEnvelope = audioContext.createGain();
+            cymbalEnvelope.gain.setValueAtTime(1, audioContext.currentTime);
+            cymbalEnvelope.gain.exponentialRampToValueAtTime(
+              0.01,
+              audioContext.currentTime + 1
+            );
+
+            cymbalNoise.connect(cymbalFilter);
+            cymbalFilter.connect(cymbalEnvelope);
+            cymbalEnvelope.connect(gainNode);
+
+            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+
+            cymbalNoise.start();
+            cymbalNoise.stop(audioContext.currentTime + 1);
+            break;
+        }
+      }
+
+      function createGrid() {
+        drumSounds.forEach((sound, row) => {
+          for (let col = 0; col < 16; col++) {
+            const cell = document.createElement("div");
+            cell.classList.add("cell");
+            if (pattern[row][col]) {
+              cell.classList.add("active");
+            }
+            cell.dataset.row = row;
+            cell.dataset.col = col;
+            cell.addEventListener("click", toggleCell);
+            grid.appendChild(cell);
+          }
+        });
+      }
+
+      function toggleCell(event) {
+        const row = event.target.dataset.row;
+        const col = event.target.dataset.col;
+        pattern[row][col] = !pattern[row][col];
+        event.target.classList.toggle("active");
+      }
+
+      function play() {
+        if (!isPlaying) {
+          if (!audioContext) initAudio();
+          isPlaying = true;
+          currentBeat = 0;
+          playBeat();
+        }
+      }
+
+      function stop() {
+        isPlaying = false;
+        currentBeat = 0;
+        updatePlayingIndicator();
+      }
+
+      function playBeat() {
+        if (!isPlaying) return;
+
+        updatePlayingIndicator();
+
+        drumSounds.forEach((sound, row) => {
+          if (pattern[row][currentBeat]) {
+            createDrumSound(sound);
+          }
+        });
+
+        currentBeat = (currentBeat + 1) % 16;
+
+        setTimeout(playBeat, ((60 / tempo) * 1000) / 4);
+      }
+
+      function updatePlayingIndicator() {
+        const cells = document.querySelectorAll(".cell");
+        cells.forEach((cell) => cell.classList.remove("playing"));
+
+        if (isPlaying) {
+          drumSounds.forEach((_, row) => {
+            const playingCell = document.querySelector(
+              `.cell[data-row="${row}"][data-col="${currentBeat}"]`
+            );
+            playingCell.classList.add("playing");
+          });
+        }
+      }
+
+      function updateTempo() {
+        tempo = tempoSlider.value;
+        tempoValue.textContent = `${tempo} BPM`;
+      }
+
+      function randomizePattern() {
+        pattern.forEach((row, i) => {
+          row.forEach((_, j) => {
+            pattern[i][j] = Math.random() < 0.3 ? 1 : 0;
+          });
+        });
+        updateGrid();
+      }
+
+      function updateGrid() {
+        const cells = document.querySelectorAll(".cell");
+        cells.forEach((cell) => {
+          const row = cell.dataset.row;
+          const col = cell.dataset.col;
+          if (pattern[row][col]) {
+            cell.classList.add("active");
+          } else {
+            cell.classList.remove("active");
+          }
+        });
+      }
+
+      createGrid();
+      playButton.addEventListener("click", play);
+      stopButton.addEventListener("click", stop);
+      randomizeButton.addEventListener("click", randomizePattern);
+      tempoSlider.addEventListener("input", updateTempo);
+      updateTempo();
+    </script>
+  </body>
+</html>

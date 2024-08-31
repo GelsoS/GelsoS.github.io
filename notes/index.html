@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #007bff;
+            color: white;
+            padding: 10px;
+        }
+
+        .note {
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .note-title {
+            font-weight: bold;
+        }
+
+        .note-content {
+            margin-top: 5px;
+        }
+
+        .btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+            transition: 0.5s;
+        }
+
+        .pinned {
+            background: lightyellow;
+        }
+
+        .editor {
+            margin-top: 20px;
+        }
+
+        /* Container of the editor */
+        .editor {
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+
+        /* Style for text inputs */
+        .editor input[type="text"],
+        .editor textarea {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            font-size: 16px;
+            width: calc(100% - 22px);
+            /* Adjust for padding and border */
+            margin-bottom: 10px;
+            transition: border-color 0.3s ease;
+        }
+
+        .editor input[type="text"]:focus,
+        .editor textarea:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        /* Style for the textarea specifically */
+        .editor textarea {
+            resize: vertical;
+        }
+
+        /* Style for buttons */
+        .editor .btn {
+            background: #007bff;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .editor .btn:hover {
+            background: #0056b3;
+        }
+
+        .editor .btn:last-child {
+            background: #6c757d;
+        }
+
+        .editor .btn:last-child:hover {
+            background: #5a6268;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Notes App</h1>
+        <button class="btn" onclick="toggleEditor()">New Note</button>
+        <button class="btn" onclick="downloadNotes()">Save Backup</button>
+    </header>
+
+    <div id="notesContainer"></div>
+
+    <div class="editor" id="editor" style="display: none;">
+        <input type="text" id="noteTitle" placeholder="Note Title" style="width: 100%;">
+        <textarea id="noteContent" placeholder="Start writing your note..."
+            style="width: 100%; height: 100px;"></textarea>
+        <button class="btn" onclick="saveNote()">Save Note</button>
+        <button class="btn" onclick="toggleEditor()">Cancel</button>
+    </div>
+
+    <script>
+        let notes = [];
+        let editingIndex = -1;
+
+        function toggleEditor() {
+            const editor = document.getElementById('editor');
+            editor.style.display = editor.style.display === 'none' ? 'block' : 'none';
+            if (editor.style.display === 'block') {
+                clearEditor();
+            }
+        }
+
+        function clearEditor() {
+            document.getElementById('noteTitle').value = '';
+            document.getElementById('noteContent').value = '';
+            editingIndex = -1;
+        }
+
+        function saveNote() {
+            const title = document.getElementById('noteTitle').value;
+            const content = document.getElementById('noteContent').value;
+
+            if (editingIndex >= 0) {
+                notes[editingIndex].title = title;
+                notes[editingIndex].content = content;
+            } else {
+                notes.push({ title, content, pinned: false });
+            }
+            displayNotes();
+            toggleEditor();
+        }
+
+        function displayNotes() {
+            const notesContainer = document.getElementById('notesContainer');
+            notesContainer.innerHTML = '';
+
+            const sortedNotes = notes.sort((a, b) => b.pinned - a.pinned);
+
+            sortedNotes.forEach((note, index) => {
+                const noteDiv = document.createElement('div');
+                noteDiv.className = 'note' + (note.pinned ? ' pinned' : '');
+                noteDiv.innerHTML = `
+                <div class="note-title">${note.title}</div>
+                <div class="note-content">${note.content}</div>
+                <button class="btn" onclick="editNote(${index})">Edit</button>
+                <button class="btn" onclick="deleteNote(${index})">Delete</button>
+                <button class="btn" onclick="pinNote(${index})">${note.pinned ? 'Unpin' : 'Pin'}</button>
+            `;
+                notesContainer.appendChild(noteDiv);
+            });
+        }
+
+        function editNote(index) {
+            editingIndex = index;
+            document.getElementById('noteTitle').value = notes[index].title;
+            document.getElementById('noteContent').value = notes[index].content;
+            toggleEditor();
+        }
+
+        function deleteNote(index) {
+            notes.splice(index, 1);
+            displayNotes();
+        }
+
+        function pinNote(index) {
+            notes[index].pinned = !notes[index].pinned;
+            displayNotes();
+        }
+
+        function downloadNotes() {
+            let docContent = "<h1>Notes Backup</h1><ul>";
+            notes.forEach(note => {
+                docContent += `<li><strong>${note.title}</strong><p>${note.content}</p></li>`;
+            });
+            docContent += "</ul>";
+
+            const blob = new Blob([docContent], { type: 'application/msword' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'notes_backup.doc';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    </script>
+
+</body>
+
+</html>
