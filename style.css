@@ -39,7 +39,8 @@ body {
 }
 
 header {
-  background-image: url("./img/bg.jpeg");
+  background-image: url("./img/bg.jpeg") ;
+  /* background-position: center; */
   background-size: cover;
   text-align: center;
   color: #fff;
@@ -50,6 +51,13 @@ header img {
   width: 150px;
   height: 150px;
   border-radius: 5%;
+}
+
+header h2 {
+  font-size: 2.5rem;
+  margin: 1rem 0;
+  mix-blend-mode: overlay;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .projetos {
@@ -71,14 +79,12 @@ header img {
 }
 
 .projetos img {
-  width: 150px;
-  height: 150px;
+  width: 100%; 
+  /* max-height: 150px;  */
   border-radius: 5%;
-}
-
-header h1 {
-  font-size: 2.5rem;
-  margin: 1rem 0;
+  object-fit: contain; 
+  aspect-ratio: 3/2;
+  /* mix-blend-mode: color-burn; */
 }
 
 header p {
@@ -195,7 +201,7 @@ summary::after {
   border-bottom: 2px solid;
   position: absolute;
   top: calc(50% - 1px);
-  left: 0;
+  left: 15px;
   transform: translateY(-50%);
   transition: 200ms;
 }
@@ -208,9 +214,8 @@ summary::after {
 }
 
 details {
-  color: #333;
+  /* color: #333; */
   /* border: 1px solid; */
-  padding: 0 1rem;
   background: #dddada;
   border-radius: 5px;
   transition: 50ms;
@@ -294,6 +299,41 @@ img.fullscreen {
 .info {
   display: flex;
   justify-content: space-evenly;
+}
+
+.shop {
+  background-image: url('./img/CARSHOP.png'); /* Substitua pelo caminho da sua imagem */
+  background-size: cover; /* Ajusta o tamanho da imagem de fundo */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Evita a repetição da imagem */
+}
+
+.tunes {
+  background: url('./img/tunes.jpg') no-repeat center/cover;
+}
+
+.carteira {
+  background: url('./img/money.webp') no-repeat center/cover;
+}
+
+.solar {
+  background: url('./img/system.webp') no-repeat center/cover;
+}
+
+.trivia { 
+  background: url('./img/trivia.jpeg') no-repeat center/cover;
+}
+
+.futbol {
+  background: url('./img/futbol.jpeg') no-repeat center/cover;
+}
+
+.delivery {
+  background: url('./img/delivery.jpg') no-repeat center/cover;
+}
+
+.recipes {
+  background: url('./img/recipes.jpeg') no-repeat center/cover;
 }
 
 @media screen and (max-width: 720px) {
