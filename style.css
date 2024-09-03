@@ -298,13 +298,6 @@ img.fullscreen {
   justify-content: space-evenly;
 }
 
-/* .shop {
-  background-image: url('./img/CARSHOP.png'); /* Substitua pelo caminho da sua imagem */
-  background-size: cover; /* Ajusta o tamanho da imagem de fundo */
-  background-position: center; /* Centraliza a imagem */
-  background-repeat: no-repeat; /* Evita a repetição da imagem */
-} */
-
 /* 
 .tunes {
   background: url('./img/tunes.jpg') no-repeat center/cover;
