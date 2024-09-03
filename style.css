@@ -40,7 +40,6 @@ body {
 
 header {
   background-image: url("./img/bg.jpeg") ;
-  /* background-position: center; */
   background-size: cover;
   text-align: center;
   color: #fff;
@@ -190,12 +189,10 @@ summary {
 summary::marker {
   content: none;
 }
+
 summary::before,
 summary::after {
   content: "";
-}
-summary::before,
-summary::after {
   width: 0.75em;
   height: fit-content;
   border-bottom: 2px solid;
@@ -216,7 +213,7 @@ summary::after {
 details {
   /* color: #333; */
   /* border: 1px solid; */
-  background: #dddada;
+  background: #ddddda;
   border-radius: 5px;
   transition: 50ms;
 }
@@ -301,40 +298,36 @@ img.fullscreen {
   justify-content: space-evenly;
 }
 
-.shop {
+/* .shop {
   background-image: url('./img/CARSHOP.png'); /* Substitua pelo caminho da sua imagem */
   background-size: cover; /* Ajusta o tamanho da imagem de fundo */
   background-position: center; /* Centraliza a imagem */
   background-repeat: no-repeat; /* Evita a repetição da imagem */
-}
+} */
 
+/* 
 .tunes {
   background: url('./img/tunes.jpg') no-repeat center/cover;
+  color: #fff;
 }
-
 .carteira {
   background: url('./img/money.webp') no-repeat center/cover;
 }
-
 .solar {
   background: url('./img/system.webp') no-repeat center/cover;
 }
-
 .trivia { 
   background: url('./img/trivia.jpeg') no-repeat center/cover;
 }
-
 .futbol {
   background: url('./img/futbol.jpeg') no-repeat center/cover;
 }
-
 .delivery {
   background: url('./img/delivery.jpg') no-repeat center/cover;
 }
-
 .recipes {
   background: url('./img/recipes.jpeg') no-repeat center/cover;
-}
+} */
 
 @media screen and (max-width: 720px) {
   iframe {
