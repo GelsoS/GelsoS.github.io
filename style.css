@@ -288,7 +288,7 @@ img.fullscreen {
   left: 0;
   width: 100vw;
   height: 100vh;
-  object-fit: contain; /* Mantém a proporção da imagem */
+  object-fit:cover; 
   z-index: 2;
   background: rgba(0, 0, 0, 0.8); /* Fundo escuro com transparência */
 }
@@ -347,6 +347,10 @@ img.fullscreen {
     width: 100%;
   }
   .projeto .app {
-    width: 330px;
+   width: 100%;
+  } 
+
+  img.fullscreen {
+    object-fit:contain; /* Mantém a proporção da imagem */
   }
 }
