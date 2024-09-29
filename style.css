@@ -7,8 +7,10 @@
 body {
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Altura total da janela de visualização */
-  font-family: Arial, sans-serif; /* Fonte padrão */
+  height: 100vh;
+  /* Altura total da janela de visualização */
+  font-family: Arial, sans-serif;
+  /* Fonte padrão */
   text-align: center;
   color: #333;
   background: #ccc;
@@ -17,6 +19,7 @@ body {
 .user {
   display: inline-flex;
 }
+
 .user span {
   font-style: italic;
 }
@@ -28,18 +31,23 @@ body {
 }
 
 .sobre fieldset {
-  padding: 20px; /* Espaçamento interno para melhor visualização */
-  border-radius: 8px; /* Bordas arredondadas */
-  position: relative; /* Para manipular a posição do legend */
+  padding: 20px;
+  /* Espaçamento interno para melhor visualização */
+  border-radius: 8px;
+  /* Bordas arredondadas */
+  position: relative;
+  /* Para manipular a posição do legend */
 }
 
 .sobre fieldset legend {
-  padding: 0 10px; /* Espaçamento interno do texto da legenda */
-  font-weight: bold; /* Deixar o texto da legenda em negrito */
+  padding: 0 10px;
+  /* Espaçamento interno do texto da legenda */
+  font-weight: bold;
+  /* Deixar o texto da legenda em negrito */
 }
 
 header {
-  background-image: url("./img/bg.jpeg") ;
+  background-image: url("./img/bg.jpeg");
   background-size: cover;
   text-align: center;
   color: #fff;
@@ -78,10 +86,10 @@ header h2 {
 }
 
 .projetos img {
-  width: 100%; 
+  width: 100%;
   /* max-height: 150px;  */
   border-radius: 5%;
-  object-fit: contain; 
+  object-fit: contain;
   aspect-ratio: 3/2;
   /* mix-blend-mode: color-burn; */
 }
@@ -120,6 +128,7 @@ h2 {
   border-radius: 5px;
   text-decoration: none;
 }
+
 .app {
   width: 224px;
   height: 150px;
@@ -154,7 +163,8 @@ footer {
   align-items: center;
   color: #0077b5;
   text-decoration: none;
-  font-size: 1.2em; /* Ajuste o tamanho da fonte conforme necessário */
+  font-size: 1.2em;
+  /* Ajuste o tamanho da fonte conforme necessário */
 }
 
 .social-link .fa-linkedin {
@@ -162,18 +172,22 @@ footer {
 }
 
 .social-link i {
-  margin-right: 8px; /* Espaçamento entre ícone e texto */
+  margin-right: 8px;
+  /* Espaçamento entre ícone e texto */
 }
+
 .social-link {
   color: #000;
 }
+
 /* Estilo para o link do GitHub */
 .social-link .fa-github {
   color: #333;
 }
 
 .social-link .fa-github i {
-  color: #333; /* Cor do ícone do GitHub */
+  color: #333;
+  /* Cor do ícone do GitHub */
 }
 
 .contato {
@@ -191,6 +205,7 @@ footer {
 summary {
   position: relative;
 }
+
 summary::marker {
   content: none;
 }
@@ -207,10 +222,12 @@ summary::after {
   transform: translateY(-50%);
   transition: 200ms;
 }
+
 summary::after {
   transform: rotate(90deg);
   transform-origin: 50% 50%;
 }
+
 [open] summary::after {
   transform: rotate(0deg);
 }
@@ -222,9 +239,11 @@ details {
   border-radius: 5px;
   transition: 50ms;
 }
-details + details {
+
+details+details {
   border-top: none;
 }
+
 details[open] {
   padding-bottom: 1em;
 }
@@ -239,6 +258,7 @@ details a {
   border-radius: 5px;
   margin-bottom: 15px;
 }
+
 summary {
   padding: 1rem 2em 1rem 0;
   font-size: 1.25rem;
@@ -249,11 +269,13 @@ summary {
 .preview-container {
   margin-top: 20px;
   width: 100%;
-  height: 100vh; /* Ajuste a altura conforme necessário */
-  overflow: hidden; /* Ocultar qualquer conteúdo que ultrapasse o tamanho do container */
+  height: 100vh;
+  /* Ajuste a altura conforme necessário */
+  overflow: hidden;
+  /* Ocultar qualquer conteúdo que ultrapasse o tamanho do container */
 }
 
-p{
+p {
   font-family: 'Courier New', Courier, monospace;
 }
 
@@ -266,6 +288,7 @@ iframe {
 b {
   text-align: center;
 }
+
 .ul {
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -293,9 +316,10 @@ img.fullscreen {
   left: 0;
   width: 100vw;
   height: 100vh;
-  object-fit:cover; 
+  object-fit: cover;
   z-index: 2;
-  background: rgba(0, 0, 0, 0.8); /* Fundo escuro com transparência */
+  background: rgba(0, 0, 0, 0.8);
+  /* Fundo escuro com transparência */
 }
 
 .info {
@@ -351,11 +375,13 @@ img.fullscreen {
     padding: 0;
     width: 100%;
   }
+
   .projeto .app {
-   width: 100%;
-  } 
+    width: 100%;
+  }
 
   img.fullscreen {
-    object-fit:contain; /* Mantém a proporção da imagem */
+    object-fit: contain;
+    /* Mantém a proporção da imagem */
   }
 }
