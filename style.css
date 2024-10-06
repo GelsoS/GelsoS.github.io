@@ -327,29 +327,33 @@ img.fullscreen {
   justify-content: space-evenly;
 }
 
-/* 
-.tunes {
-  background: url('./img/tunes.jpg') no-repeat center/cover;
-  color: #fff;
+.notification {
+  background-color: #ffcc00;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  animation: fadeIn 1s;
 }
-.carteira {
-  background: url('./img/money.webp') no-repeat center/cover;
+.notification i {
+  color: #d9534f;
+  margin: 0 10px;
+  font-size: 24px;
 }
-.solar {
-  background: url('./img/system.webp') no-repeat center/cover;
+marquee {
+  font-weight: bold;
+  color: #333;
+  padding: 0 10px;
 }
-.trivia { 
-  background: url('./img/trivia.jpeg') no-repeat center/cover;
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
 }
-.futbol {
-  background: url('./img/futbol.jpeg') no-repeat center/cover;
-}
-.delivery {
-  background: url('./img/delivery.jpg') no-repeat center/cover;
-}
-.recipes {
-  background: url('./img/recipes.jpeg') no-repeat center/cover;
-} */
 
 @media screen and (max-width: 720px) {
   iframe {
