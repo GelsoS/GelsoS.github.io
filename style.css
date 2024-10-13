@@ -316,7 +316,7 @@ img.fullscreen {
   left: 0;
   width: 100vw;
   height: 100vh;
-  object-fit: cover;
+  object-fit: contain;
   z-index: 2;
   background: rgba(0, 0, 0, 0.8);
   /* Fundo escuro com transparência */
@@ -346,6 +346,11 @@ marquee {
   color: #333;
   padding: 0 10px;
 }
+
+.Python a{
+  width: 100%;
+}
+
 @keyframes fadeIn {
   from {
       opacity: 0;
@@ -374,7 +379,13 @@ marquee {
   section.projetos {
     margin: 5px;
   }
+  
+  .Python{
+    /* border: solid 2px #000; */
+    width: 90vw;
 
+  }
+  
   main {
     padding: 0;
     width: 100%;
