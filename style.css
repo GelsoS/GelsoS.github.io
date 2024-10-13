@@ -135,7 +135,6 @@ h2 {
 }
 
 #curriculo a {
-  display: inline-block;
   margin-top: 1rem;
   padding: 0.5rem 1rem;
   background-color: #4caf50;
@@ -322,9 +321,42 @@ img.fullscreen {
   /* Fundo escuro com transparência */
 }
 
+/* Estilizando a div info */
 .info {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  margin: 15px 0;
+}
+
+/* Estilizando os links */
+.info a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 15px;
+}
+
+/* Estilizando a área do ícone de TV */
+.tv-link {
+  background-color: #000; 
+  border-radius: 5px;
+  padding: 15px;
+  color: red;
+  font-size: 34px; /* Tamanho do ícone */
+  transition: background-color 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.tv-link:hover {
+  background-color: #494848; /* Cor ao passar o mouse */
+}
+
+.tv-link i {
+  pointer-events: none; /* Evitar que o ícone receba eventos de clique */
 }
 
 .notification {
@@ -334,7 +366,7 @@ img.fullscreen {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
-  animation: fadeIn 1s;
+  animation: fadeIn 2s;
 }
 .notification i {
   color: #d9534f;
