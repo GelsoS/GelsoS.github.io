@@ -71,7 +71,7 @@ const channels = [
     { name: "Cinemax", img: "./img/cinemax_.webp", url: "https://embedmax.site/tvl/cinemax.php" },
     { name: "Cine Canal", img: "./img/cinecanal_.webp", url: "https://embedmax.site/tvl/cinecanal.php" },
     { name: "Paramount Network", img: "./img/paramount_network_.webp", url: "https://embedmax.site/tvl/paramountnetwork.php" },
-    { name: "Arte 1", img: "./img/art_1_gratis.webp", url: "https://embedmax.site/tvl/arte1.php" },
+    { name: "Arte 1", img: "./img/arte_1_gratis.webp", url: "https://embedmax.site/tvl/arte1.php" },
     { name: "Animal Planet", img: "./img/animal_planet_.webp", url: "https://embedmax.site/tvl/animalplanet.php" },
     { name: "Cartoon Network", img: "./img/cartoon_network_.webp", url: "https://embedmax.site/tvl/cartoonnetwork.php" },
     { name: "Disney Channel", img: "./img/disney_channel_.webp", url: "https://embedmax.site/tvl/disneychannel.php" },
