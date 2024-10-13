@@ -106,7 +106,7 @@ h1 {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    z-index: 100; /* Garante que fique acima de outros elementos */
+    z-index: 1; /* Garante que fique acima de outros elementos */
     background-color: #007bff;
     color: white;
     border: none;
