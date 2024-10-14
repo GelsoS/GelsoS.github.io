@@ -77,7 +77,7 @@ const channels = [
     { name: "Disney Channel", img: "./img/disney_channel_.webp", url: "https://embedmax.site/tvl/disneychannel.php" },
     { name: "National Geographic", img: "./img/national_.webp", url: "https://embedmax.site/tvl/nationalgeographic.php" },
     { name: "Sony Channel", img: "./img/sony_channel_.webp", url: "https://embedmax.site/tvl/sonychannel.php" },
-    { name: "Space", img: "./img/space_.webp", url: "https://embedmax.site/tvl/space.php" },
+    { name: "Space", img: "./img/space_.webp", url: "//%78%6E%2D%2D%2D%2D%2D%2D%2D%2D%2D%2D%2D%2D%2D%2D%2D%2D%67%33%34%6C%33%66%6B%70%37%6D%73%68%31%63%6A%33%61%63%6F%62%6A%33%33%61%63%32%61%37%61%38%6C%75%66%6F%6D%6D%61%37%63%66%32%62%31%73%68%2E%78%6E%2D%2D%2D%31%6C%31%2D%2D%35%6F%34%64%78%62%2E%78%6E%2D%2D%2D%32%32%2D%2D%31%31%2D%2D%33%33%2D%2D%39%39%2D%2D%37%35%2D%2D%2D%2D%2D%2D%2D%2D%2D%62%32%35%7A%6A%66%33%6C%74%61%36%6D%77%66%36%61%34%37%64%7A%61%39%34%65%2E%78%6E%2D%2D%70%63%6B%2E%78%6E%2D%2D%7A%63%6B%2E%78%6E%2D%2D%30%63%6B%2E%78%6E%2D%2D%70%63%6B%2E%78%6E%2D%2D%79%63%6B%2E%78%6E%2D%2D%2D%2D%2D%30%62%34%61%73%6A%61%38%63%62%65%77%32%62%34%62%30%67%64%30%65%64%62%6A%6D%32%6A%70%61%31%62%31%65%39%7A%76%61%37%61%30%33%34%37%73%34%64%61%32%37%39%37%65%37%71%72%69%2E%78%6E%2D%2D%31%63%6B%32%65%31%62/player3/ch.php?canal=space" },
     { name: "Star Channel", img: "./img/star_channel_.webp", url: "https://embedmax.site/tvl/starchannel.php" },
     { name: "Warner TV", img: "./img/warner_channel_.webp", url: "https://embedmax.site/tvl/warnertv.php" },
     { name: "TLC", img: "./img/tlc_.webp", url: "https://embedmax.site/tvl/tlc.php" },
@@ -116,6 +116,12 @@ function displayChannels(channelsToDisplay) {
 // Inicializa os cards
 displayChannels(channels);
 
+// Função para abrir o player em fullscreen
+function openPlayer(url) {
+    player.src = url;
+    fullscreenPlayer.style.display = "flex";
+}
+
 // Filtrar canais com base na busca
 searchInput.addEventListener("input", () => {
     const searchText = searchInput.value.toLowerCase();
@@ -125,12 +131,6 @@ searchInput.addEventListener("input", () => {
     displayChannels(filteredChannels);
 });
 
-// Função para abrir o player em fullscreen
-function openPlayer(url) {
-    player.src = url;
-    fullscreenPlayer.style.display = "flex";
-}
-
 // Função para fechar o player
 closeButton.onclick = () => {
     fullscreenPlayer.style.display = "none";
@@ -138,14 +138,14 @@ closeButton.onclick = () => {
 };
 
 // Quando o usuário rolar a página, chama a função handleScroll
-window.onscroll = function() { handleScroll() };
+window.onscroll = function () { handleScroll() };
 
 // Mostra ou esconde o botão de acordo com a posição do scroll
 function handleScroll() {
     const backToTopButton = document.getElementById("back-to-top");
 
     // Verifica se a posição atual do scroll é maior que a metade da página
-    if (document.body.scrollTop > window.innerHeight / 2 || document.documentElement.scrollTop > window.innerHeight / 2) {
+    if (document.body.scrollTop > window.innerHeight || document.documentElement.scrollTop > window.innerHeight * 2) {
         backToTopButton.style.display = "block"; // Mostra o botão
     } else {
         backToTopButton.style.display = "none"; // Esconde o botão
@@ -153,7 +153,7 @@ function handleScroll() {
 }
 
 // Função para rolar suavemente para o topo ao clicar no botão
-document.getElementById('back-to-top').addEventListener('click', function() {
+document.getElementById('back-to-top').addEventListener('click', function () {
     window.scrollTo({
         top: 0,
         behavior: 'smooth' // Faz a rolagem suave
