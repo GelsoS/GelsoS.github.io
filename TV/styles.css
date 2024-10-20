@@ -2,7 +2,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background: rgb(12,4,135);
+    background: linear-gradient(225deg, rgba(12,4,135,1) 0%, rgb(6, 83, 2) 33%, rgba(0,212,255,1) 100%);
 }
 
 .container {
@@ -11,18 +12,22 @@ body {
 
 h1 {
     text-align: center;
+    color: #fff;
 }
 
 .search-bar {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
-    outline-color: #80d4ff; /* Azul claro */
+    outline-color: #80d4ff;
+    /* Azul claro */
 }
 
 .search-bar input:focus {
-    outline: 1px solid #80d4ff; /* Azul claro */
-    border-radius: 4px; /* Suaviza os cantos do campo de busca */
+    outline: 1px solid #80d4ff;
+    /* Azul claro */
+    border-radius: 4px;
+    /* Suaviza os cantos do campo de busca */
 }
 
 .search-bar input {
@@ -102,11 +107,13 @@ h1 {
 }
 
 #back-to-top {
-    display: none; /* Escondido por padrão */
+    display: none;
+    /* Escondido por padrão */
     position: fixed;
     bottom: 20px;
     right: 20px;
-    z-index: 1; /* Garante que fique acima de outros elementos */
+    z-index: 1;
+    /* Garante que fique acima de outros elementos */
     background-color: #007bff;
     color: white;
     border: none;
@@ -119,7 +126,8 @@ h1 {
 }
 
 #back-to-top:hover {
-    background-color: #0056b3; /* Cor mais escura ao passar o mouse */
+    background-color: #0056b3;
+    /* Cor mais escura ao passar o mouse */
 }
 
 
@@ -130,8 +138,10 @@ h1 {
     }
 
     .fullscreen-player iframe {
-        width: 100%; /* O iframe ocupará 100% da largura em telas menores */
-        height: 100%; /* O iframe ocupará 100% da altura também */
+        width: 100%;
+        /* O iframe ocupará 100% da largura em telas menores */
+        height: 100%;
+        /* O iframe ocupará 100% da altura também */
     }
 }
 
@@ -145,8 +155,10 @@ h1 {
     }
 
     .fullscreen-player iframe {
-        width: 100%; /* O iframe ocupará 100% da largura em telas menores */
-        height: 100%; /* O iframe ocupará 100% da altura também */
+        width: 100%;
+        /* O iframe ocupará 100% da largura em telas menores */
+        height: 100%;
+        /* O iframe ocupará 100% da altura também */
     }
 
     .card-container {
