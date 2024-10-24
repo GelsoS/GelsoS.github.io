@@ -16,25 +16,60 @@
 
     <!-- Link para a folha de estilos -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 
 <body>
-    <div class="container">
-        <h1>TV Streams</h1>
-        <div class="search-bar">
-            <input type="text" id="search-input" placeholder="Buscar canal...">
-        </div>
-        <button id="back-to-top" title="Voltar ao topo">↑</button>
+    <header class="header">
+        <nav class="nav">
+            <button class="menu-toggle">☰</button>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#inicio" class="nav-link">Início</a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link">Categorias</a>
+                    <div class="dropdown-content">
+                        <a href="#" data-category="all">Todos</a>
+                        <a href="#" data-category="abertos">Canais Abertos</a>
+                        <a href="#" data-category="esportes">Esportes</a>
+                        <a href="#" data-category="filmes">Filmes e Séries</a>
+                        <a href="#" data-category="documentarios">Documentários</a>
+                        <a href="#" data-category="infantil">Infantil</a>
+                        <a href="#" data-category="variedades">Variedades</a>
+                        <a href="#" data-category="noticias">Notícias</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="#" class="nav-link">Sobre</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <div class="card-container" id="card-container">
-            <!-- Os cards serão gerados aqui -->
+    <main class="main" id="inicio">
+        <div class="category-buttons">
+            <button class="category-button active" data-category="all">Todos</button>
+            <button class="category-button" data-category="abertos">Canais Abertos</button>
+            <button class="category-button" data-category="esportes">Esportes</button>
+            <button class="category-button" data-category="filmes">Filmes e Séries</button>
+            <button class="category-button" data-category="documentarios">Documentários</button>
+            <button class="category-button" data-category="infantil">Infantil</button>
+            <button class="category-button" data-category="variedades">Variedades</button>
+            <button class="category-button" data-category="noticias">Notícias</button>
         </div>
-    </div>
+        <div class="channel-grid" id="channelGrid"></div>
+    </main>
+    <footer id="contact" style="text-align: center; padding: 20px; background-color: #272727; color: #fff;">
+        <p>Entre em contato:</p>
+        <a href="https://wa.me/49991765460" style="margin: 0 10px; text-decoration: none; color: #25D366;">
+            <i class="fab fa-whatsapp"></i> +55 49 99176-5460
+        </a>
+        |
+        <a href="https://wa.me/49988861174" style="margin: 0 10px; text-decoration: none; color: #25D366;">
+            <i class="fab fa-whatsapp"></i> +55 49 98886-1174
+        </a>
+        <p>&copy; 2024 TV Streams</p>
+    </footer>
 
-    <div class="fullscreen-player" id="fullscreen-player">
-        <iframe id="player" src="" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
-        <button id="close-button">Fechar</button>
-    </div>
 
     <script src="script.js"></script>
 </body>
