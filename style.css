@@ -16,6 +16,27 @@ body {
   background: #ccc;
 }
 
+.irrf {
+  text-align: center; /* Centraliza o conteúdo da seção */
+  margin: 20px 0; /* Espaçamento superior e inferior */
+}
+
+.irrf a {
+  display: inline-block; /* Permite adicionar padding ao link */
+  padding: 12px 24px; /* Espaçamento interno do botão */
+  background-color: #2992cf; /* Cor de fundo do botão */
+  color: white; /* Cor do texto */
+  text-decoration: none; /* Remove o sublinhado do link */
+  font-size: 1rem; /* Tamanho da fonte */
+  border-radius: 5px; /* Bordas arredondadas */
+  transition: background-color 0.3s ease; /* Efeito de transição ao passar o mouse */
+}
+
+.irrf a:hover {
+  background-color: #45a049; /* Cor de fundo ao passar o mouse */
+}
+
+
 .user {
   display: inline-flex;
 }
