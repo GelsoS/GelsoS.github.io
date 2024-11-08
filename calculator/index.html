@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Day Trade</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -92,6 +94,7 @@
             margin-top: 5px;
             border: 1px solid #ccc;
             border-radius: 4px;
+            outline-color: #007BFF;
         }
 
         input[type="month"] {
@@ -101,12 +104,35 @@
             margin-top: 5px;
             border: 1px solid #ccc;
             border-radius: 4px;
+            outline-color: #007BFF;
         }
 
         .error {
             color: red;
             font-size: 0.9rem;
             margin-top: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ccc;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
         }
     </style>
 </head>
@@ -127,31 +153,51 @@
             </div>
 
             <button id="calculateBtn">Calcular</button>
+            <button id="restoreBtn" class="hidden">Restaurar Histórico</button>
             <button id="exportBtn" class="hidden">Exportar para PDF</button>
         </div>
 
         <div id="results" class="mt-6 hidden">
             <h3 class="text-lg font-semibold">Resultados:</h3>
-            <p>Ajustes Totais: R$ <span id="totalAdjustments"></span></p>
-            <p>Valor total das taxas: R$ <span id="totalFees"></span></p>
-            <p>Total IRRF: R$ <span id="totalIRRF"></span></p>
-            <p>Lucro Líquido: R$ <span id="netProfit"></span></p>
-            <p>Imposto devido: R$ <span id="taxDue"></span></p>
-            <p>Data do ajuste: <span id="adjustmentDate"></span></p>
-            <p>Mês de referência: <span id="monthDisplay"></span></p>
+            <table>
+                <tr>
+                    <th>Ajustes Totais</th>
+                    <th>Valor Total das Taxas</th>
+                    <th>Total IRRF</th>
+                    <th>Lucro Líquido</th>
+                    <th>Imposto Devido</th>
+                    <th>Data do Ajuste</th>
+                    <th>Mês de Referência</th>
+                </tr>
+                <tr>
+                    <td>R$ <span id="totalAdjustments"></span></td>
+                    <td>R$ <span id="totalFees"></span></td>
+                    <td>R$ <span id="totalIRRF"></span></td>
+                    <td>R$ <span id="netProfit"></span></td>
+                    <td>R$ <span id="taxDue"></span></td>
+                    <td><span id="adjustmentDate"></span></td>
+                    <td><span id="monthDisplay"></span></td>
+                </tr>
+            </table>
         </div>
     </div>
 
     <script>
         document.getElementById("calculateBtn").addEventListener("click", calculateResults);
+        const savedOperations = JSON.parse(localStorage.getItem('operations'));
+        if (savedOperations) {
+            document.getElementById("restoreBtn").classList.remove("hidden");
+            document.getElementById("restoreBtn").addEventListener("click", function () {
+                restoreHistory(savedOperations);
+            });
+        }
         document.getElementById("exportBtn").addEventListener("click", exportToPDF);
 
         function calculateResults() {
             const input = document.getElementById("operations").value;
-            const errorMsg = document.getElementById("errorMsg");
             const monthReference = document.getElementById("monthReference").value;
+            const errorMsg = document.getElementById("errorMsg");
 
-            // Verifica se há operações inseridas
             if (!input.trim() || !monthReference) {
                 errorMsg.classList.remove("hidden");
                 return;
@@ -181,10 +227,9 @@
             });
 
             const netProfit = totalAdjustments - totalFees - totalIRRF;
-            const taxDue = Math.max(netProfit * 0.2 - totalIRRF, 0);
+            const taxDue = Math.max(netProfit * 0.2, 0);
             const adjustmentDate = new Date().toLocaleDateString("pt-BR");
 
-            // Corrigindo a exibição do mês de referência
             const [year, month] = monthReference.split('-');
             const monthNames = [
                 "janeiro", "fevereiro", "março", "abril", "maio", "junho",
@@ -192,7 +237,8 @@
             ];
             const formattedMonth = `${monthNames[parseInt(month) - 1]} de ${year}`;
 
-            // Exibir os resultados na página
+            localStorage.setItem('operations', JSON.stringify(input));
+
             document.getElementById("results").classList.remove("hidden");
             document.getElementById("exportBtn").classList.remove("hidden");
             document.getElementById("totalAdjustments").innerText = totalAdjustments.toFixed(2);
@@ -204,10 +250,17 @@
             document.getElementById("monthDisplay").innerText = formattedMonth;
         }
 
+        function restoreHistory(savedOperations) {
+            if (savedOperations) {
+                document.getElementById("operations").value = savedOperations;
+            }
+        }
+
         function exportToPDF() {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
 
+            // Coleta os valores da página
             const totalAdjustments = document.getElementById("totalAdjustments").innerText;
             const totalFees = document.getElementById("totalFees").innerText;
             const totalIRRF = document.getElementById("totalIRRF").innerText;
@@ -216,16 +269,37 @@
             const adjustmentDate = document.getElementById("adjustmentDate").innerText;
             const monthDisplay = document.getElementById("monthDisplay").innerText;
 
+            // Título do PDF
             doc.text("Resultados da Calculadora de Day Trade", 10, 10);
-            doc.text(`Ajustes Totais: R$ ${totalAdjustments}`, 10, 20);
-            doc.text(`Valor total das taxas: R$ ${totalFees}`, 10, 30);
-            doc.text(`Total IRRF: R$ ${totalIRRF}`, 10, 40);
-            doc.text(`Lucro Líquido: R$ ${netProfit}`, 10, 50);
-            doc.text(`Imposto devido: R$ ${taxDue}`, 10, 60);
-            doc.text(`Data do ajuste: ${adjustmentDate}`, 10, 70);
-            doc.text(`Mês de referência: ${monthDisplay}`, 10, 80);
+
+            // Dados para a tabela
+            const tableData = [
+                ["Ajustes Totais", `R$ ${totalAdjustments}`],
+                ["Valor total das taxas", `R$ ${totalFees}`],
+                ["Total IRRF", `R$ ${totalIRRF}`],
+                ["Lucro Líquido", `R$ ${netProfit}`],
+                ["Imposto devido", `R$ ${taxDue}`],
+                ["Data do ajuste", adjustmentDate],
+                ["Mês de referência", monthDisplay]
+            ];
+
+            // Cabeçalho da tabela
+            const headers = [["Descrição", "Valor"]];
+
+            // Geração da tabela com autoTable
+            doc.autoTable({
+                head: headers,
+                body: tableData,
+                startY: 20, // Define a posição inicial da tabela
+                theme: 'grid', // Estilo da tabela
+                headStyles: { fillColor: [41, 128, 185] }, // Cor do cabeçalho (opcional)
+                styles: { fontSize: 10 } // Estilo da fonte da tabela
+            });
+
+            // Salva o PDF
             doc.save(`resultados_day_trade_${adjustmentDate}.pdf`);
         }
+
     </script>
 </body>
 
