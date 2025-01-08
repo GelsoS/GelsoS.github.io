@@ -53,7 +53,7 @@ body {
     position: fixed;
     width: 100%;
     z-index: 10;
-    background: #2e03f0;
+    background: #272727;
     align-items: center;
     display: flex;
     justify-content:space-around;
@@ -240,7 +240,7 @@ body {
         width: 80%;
         height: calc(100% - 60px);
         /* From https://css.glass */
-        background: rgba(54, 3, 240, 0.5);
+        background: rgba(18, 18, 19, 0.5);
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(5px);
         -webkit-backdrop-filter: blur(5px);

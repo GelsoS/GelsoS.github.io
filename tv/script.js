@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Exibe o popup após 1 segundo
     setTimeout(() => {
         popup.style.display = "block";
-    }, 1000);
+    }, 2000);
 
     // Fecha o popup quando o botão de fechar é clicado
     closeBtn.onclick = function() {
