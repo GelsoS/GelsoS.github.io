@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salão de Beleza Encanto</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/Imagem do WhatsApp de 2025-02-04 à(s) 22.41.39_580f07aa.jpg" alt="Logo Salão Encanto">
+        </div>
+        <p class="text">Estudio voce bonita </p>
+        <nav>
+            <div class="menu-icon">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#atendimento">Atendimento</a></li>
+                <li><a href="#agendamento">Agendamento</a></li>
+                <li><a href="#precos">Preços</a></li>
+                <li><a href="#amostras">Amostras de Trabalho</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="atendimento">
+            <h2>Atendimento</h2>
+            <div class="contato-info">
+                <p><i class="fas fa-phone"></i> (11) 1234-5678</p>
+                <p><i class="fas fa-envelope"></i> contato@salaoencanto.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Rua das Flores, 123 - São Paulo, SP</p>
+            </div>
+            <div class="horario">
+                <h3>Horário de Funcionamento</h3>
+                <p>Segunda a Sábado: 9h às 20h</p>
+                <p>Domingo: 10h às 16h</p>
+            </div>
+            <div id="mapa"></div>
+        </section>
+
+        <section id="agendamento">
+            <h2>Agendamento</h2>
+            <form id="agendamento-form">
+                <select name="servico" required>
+                    <option value="">Selecione o serviço</option>
+                    <option value="corte">Corte</option>
+                    <option value="manicure">Manicure</option>
+                    <option value="pedicure">Pedicure</option>
+                    <option value="coloracao">Coloração</option>
+                </select>
+                <input type="date" name="data" required>
+                <input type="time" name="hora" required>
+                <button type="submit">Agendar</button>
+            </form>
+        </section>
+
+        <section id="precos">
+            <h2>Preços</h2>
+            <div class="servicos-lista">
+                <div class="servico">
+                    <h3>Corte</h3>
+                    <p>R$ 50,00</p>
+                    <button class="mais-info">Mais Informações</button>
+                    <div class="descricao" style="display: none;">
+                        Corte profissional personalizado de acordo com seu estilo e tipo de cabelo.
+                    </div>
+                </div>
+                <div class="servico">
+                    <h3>Manicure</h3>
+                    <p>R$ 30,00</p>
+                    <button class="mais-info">Mais Informações</button>
+                    <div class="descricao" style="display: none;">
+                        Cuidados completos para suas unhas, incluindo corte, lixamento e esmaltação.
+                    </div>
+                </div>
+                <div class="servico">
+                    <h3>Pedicure</h3>
+                    <p>R$ 40,00</p>
+                    <button class="mais-info">Mais Informações</button>
+                    <div class="descricao" style="display: none;">
+                        Tratamento completo para os pés, incluindo esfoliação, corte de unhas e esmaltação.
+                    </div>
+                </div>
+                <div class="servico">
+                    <h3>Coloração</h3>
+                    <p>A partir de R$ 100,00</p>
+                    <button class="mais-info">Mais Informações</button>
+                    <div class="descricao" style="display: none;">
+                        Coloração profissional com produtos de alta qualidade. Preço pode variar de acordo com o comprimento do cabelo.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="amostras">
+            <h2>Amostras de Trabalho</h2>
+            <div class="filtros">
+                <button class="filtro-btn ativo" data-categoria="todos">Todos</button>
+                <button class="filtro-btn" data-categoria="corte">Cortes</button>
+                <button class="filtro-btn" data-categoria="coloracao">Coloração</button>
+                <button class="filtro-btn" data-categoria="manicure">Manicure</button>
+            </div>
+            <div class="galeria">
+                <img src="images/6c10d2d17d665149484210b118e197e8.jpg" alt="Corte 1" data-categoria="corte">
+                <img src="images/cor.jpg" alt="Coloração 1" data-categoria="coloracao">
+                <img src="images/manicure2.jpg" alt="Manicure 1" data-categoria="manicure">
+                <img src="images/cortes.png" alt="Corte 2" data-categoria="corte">
+                <img src="images/hq720.jpg" alt="Coloração 2" data-categoria="coloracao">
+                <img src="images/manicure.avif" alt="Manicure 2" data-categoria="manicure">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="redes-sociais">
+            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/studiovocebonita2023?utm_source=qr&igsh=MXF4ZHB5aHk0YWl0eA==" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/554797636365" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p>&copy; 2025 Salão de Beleza Encanto. Todos os direitos reservados.</p>
+        <a href="#" class="termos">Termos e Condições</a>
+    </footer>
+
+    <div id="modal" class="modal">
+        <span class="fechar">&times;</span>
+        <img class="modal-conteudo" id="img-ampliada">
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=SUA_CHAVE_API_AQUI&callback=initMap" async defer></script>
+    <script src="script.js"></script>
+</body>
+</html>
