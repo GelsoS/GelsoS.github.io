@@ -29,12 +29,13 @@ header {
 }
 
 .logo{
-    width: 200px;
-    margin-left: 50px;
+    width: 100px;
+    margin-left: 30px;
 }
+
 .logo img {
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 80px;
+    max-height: 80px;
     height: auto;
 }
 
@@ -78,6 +79,26 @@ main {
 
 section {
     margin-bottom: 3rem;
+}
+
+.text-section {
+    background-color: #000; /* Fundo preto */
+    color: #fff; /* Texto branco */
+    text-align: center; /* Alinhamento do texto */
+    padding: 20px; /* Espaçamento interno */
+    font-family: Arial, sans-serif; /* Fonte simples */
+}
+
+.text-section p {
+    font-size: 1.2em; /* Tamanho do texto */
+    line-height: 1.5;
+    font-weight: 300; /* Texto mais suave */
+    color: #ffd700; /* Letra dourada */
+}
+
+.text-section p::first-letter {
+    font-size: 2em; /* Primeira letra maior */
+    font-weight: bold;
 }
 
 h2 {
@@ -319,9 +340,10 @@ footer {
 
     .text{
         color: transparent;
-        font-size: 5vw;
+        font-size: 7vw;
         font-weight: bold;
         -webkit-text-stroke: 0.3vw black;
+        margin-left: 0;
     } 
     
     .menu-icon {

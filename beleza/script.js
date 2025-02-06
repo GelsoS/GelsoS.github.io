@@ -6,20 +6,6 @@ menuIcon.addEventListener('click', () => {
     navLinks.classList.toggle('show');
 });
 
-// Formulário de agendamento
-const agendamentoForm = document.getElementById('agendamento-form');
-
-agendamentoForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const formData = new FormData(agendamentoForm);
-    const agendamento = Object.fromEntries(formData);
-    
-    // Aqui você pode enviar os dados para um servidor ou simular o envio
-    console.log('Agendamento:', agendamento);
-    alert('Agendamento realizado com sucesso!');
-    agendamentoForm.reset();
-});
-
 // Botões "Mais Informações"
 const maisInfoBtns = document.querySelectorAll('.mais-info');
 
@@ -99,6 +85,7 @@ function enviarParaWhatsApp(event) {
 
     // Redireciona para o WhatsApp com os dados do agendamento
     window.location.href = url;
+    alert('Agendamento realizado com sucesso!');
 }
 
 //This line needs to be added to ensure that the google maps API is loaded before the initMap function is called.  This is a common issue when using Google Maps API.  The exact implementation will depend on how you are including the Google Maps API in your project.  This is a placeholder and needs to be adjusted to your specific implementation.
