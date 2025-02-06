@@ -189,8 +189,9 @@ h2 {
 .filtro-btn {
     background-color: #f8f9fa;
     border: 1px solid #ddd;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.5rem;
     margin-right: 0.5rem;
+    margin-bottom: 10px;
     cursor: pointer;
     border-radius: 4px;
     transition: all 0.3s ease;
@@ -293,7 +294,29 @@ footer {
     color: #bbb;
 }
 
+.iframe-container {
+    position: relative;
+    width: 50%;
+    height: 0;
+    padding-bottom: 26.25%; /* Proporção de 16:9, você pode ajustar isso dependendo da proporção do seu mapa */
+    overflow: hidden;
+    width: 100%;
+}
+
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
 @media screen and (max-width: 768px) {
+    .iframe-container {
+        padding-bottom: 75%; /* Ajusta para uma proporção diferente em telas pequenas, se necessário */
+    }
+
     .text{
         color: transparent;
         font-size: 5vw;
