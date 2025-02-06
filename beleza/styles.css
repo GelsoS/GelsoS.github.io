@@ -7,7 +7,8 @@
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    color: #333;
+    background: #000;
+    color:#fff;
 }
 
 .text{
@@ -27,6 +28,14 @@ header {
     justify-content: space-between;
     align-items: center;
 }
+
+#amostras {
+    background: rgb(0,0,0);
+    background: linear-gradient(40deg, rgba(0,0,0,1) 51%, rgba(229,233,25,1) 100%);;
+    padding: 20px; /* Adiciona um espaço ao redor do conteúdo */
+    border-radius: 10px; /* Adiciona bordas arredondadas, opcional */
+}
+
 
 .logo{
     width: 100px;
@@ -82,7 +91,6 @@ section {
 }
 
 .text-section {
-    background-color: #000; /* Fundo preto */
     color: #fff; /* Texto branco */
     text-align: center; /* Alinhamento do texto */
     padding: 20px; /* Espaçamento interno */
@@ -104,7 +112,7 @@ section {
 h2 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
-    color: #007bff;
+    color: #ffd700;
 }
 
 .contato-info {
@@ -120,7 +128,7 @@ h2 {
 
 .contato-info i {
     margin-right: 0.5rem;
-    color: #007bff;
+    color: #ffd700;
 }
 
 .horario {
@@ -148,8 +156,8 @@ h2 {
 }
 
 #agendamento-form button {
-    background-color: #007bff;
-    color: white;
+    background-color: #ffd700;
+    color: #000;
     border: none;
     padding: 0.75rem;
     cursor: pointer;
@@ -179,12 +187,12 @@ h2 {
 
 .servico h3 {
     margin-bottom: 0.5rem;
-    color: #007bff;
+    color: #ffd700;
 }
 
 .mais-info {
-    background-color: #28a745;
-    color: white;
+    background-color: #ffd700;
+    color: #000;
     border: none;
     padding: 0.5rem 1rem;
     cursor: pointer;
@@ -194,7 +202,7 @@ h2 {
 }
 
 .mais-info:hover {
-    background-color: #218838;
+    background-color: #f5dc4e;
 }
 
 .descricao {
@@ -269,8 +277,17 @@ footer p {
     transition: color 0.3s ease;
 }
 
-.redes-sociais a:hover {
+.fa-facebook {
     color: #007bff;
+}
+
+.fa-whatsapp{
+    color: green;
+}
+
+.fa-instagram{
+    background: linear-gradient(171deg, rgba(61,25,247,1) 1%, rgba(232,13,246,1) 46%, rgba(241,242,6,1) 100%);
+    border-radius: 5px;
 }
 
 .termos {
@@ -367,15 +384,24 @@ footer p {
     }
 
     .nav-links.show {
-        margin-top: 10%;
+        margin-top: 9%;
         display: flex;
-        background-color: #b4f1ee;
+        /* From https://css.glass */
+        background: rgba(9, 4, 79, 0.51);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5.1px);
+        -webkit-backdrop-filter: blur(5.1px);
+        border: 1px solid rgba(9, 4, 79, 1);
     }
 
     .nav-links li {
         margin: 0;
         text-align: center;
         padding: 1rem;
+    }
+
+    .nav-links li a{
+        color: #fff;
     }
 
     .contato-info {
