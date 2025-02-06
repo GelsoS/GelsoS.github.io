@@ -21,7 +21,7 @@ body {
 header {
     padding: 1rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    background-color: #f8f9fa;
+    background: #ffd700;
     padding: 10px 20px;
     color: white;
     display: flex;
@@ -30,10 +30,7 @@ header {
 }
 
 #amostras {
-    background: rgb(0,0,0);
-    background: linear-gradient(120deg, rgba(0,0,0,1) 51%, rgba(229,233,25,1) 100%);;
     padding: 20px; /* Adiciona um espaço ao redor do conteúdo */
-    border-radius: 10px; /* Adiciona bordas arredondadas, opcional */
 }
 
 
@@ -124,6 +121,7 @@ h2 {
 .contato-info p {
     display: flex;
     align-items: center;
+    color: #ffd700;
 }
 
 .contato-info i {
@@ -133,6 +131,7 @@ h2 {
 
 .horario {
     margin-top: 1rem;
+    color: #ffd700;
 }
 
 #mapa {
@@ -231,9 +230,9 @@ h2 {
 }
 
 .filtro-btn.ativo {
-    background-color: #007bff;
-    color: white;
-    border-color: #007bff;
+    background-color: #ffd700;
+    color: #000;
+    border-color: #ffd700;
 }
 
 .galeria {
