@@ -31,7 +31,7 @@ header {
 
 #amostras {
     background: rgb(0,0,0);
-    background: linear-gradient(40deg, rgba(0,0,0,1) 51%, rgba(229,233,25,1) 100%);;
+    background: linear-gradient(120deg, rgba(0,0,0,1) 51%, rgba(229,233,25,1) 100%);;
     padding: 20px; /* Adiciona um espaço ao redor do conteúdo */
     border-radius: 10px; /* Adiciona bordas arredondadas, opcional */
 }
