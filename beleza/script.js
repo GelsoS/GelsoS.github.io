@@ -80,6 +80,27 @@ function initMap() {
     });
 }
 
+function enviarParaWhatsApp(event) {
+    event.preventDefault(); // Impede o envio padrão do formulário
+
+    // Obtendo os dados do formulário
+    const form = document.getElementById('agendamento-form');
+    const nome = form.querySelector('input[name="nome"]').value;
+    const telefone = form.querySelector('input[name="telefone"]').value;
+    const servico = form.querySelector('select[name="servico"]').value;
+    const data = form.querySelector('input[name="data"]').value;
+    const hora = form.querySelector('input[name="hora"]').value;
+
+    // Montando a mensagem para enviar pelo WhatsApp
+    const mensagem = encodeURIComponent(`Agendamento realizado:\n\nNome: ${nome}\nTelefone: ${telefone}\nServiço: ${servico}\nData: ${data}\nHora: ${hora}`);
+
+    // URL do WhatsApp com número predefinido e a mensagem
+    const url = `https://wa.me/554797636365?text=${mensagem}`;
+
+    // Redireciona para o WhatsApp com os dados do agendamento
+    window.location.href = url;
+}
+
 //This line needs to be added to ensure that the google maps API is loaded before the initMap function is called.  This is a common issue when using Google Maps API.  The exact implementation will depend on how you are including the Google Maps API in your project.  This is a placeholder and needs to be adjusted to your specific implementation.
 //For example, if you are using a script tag, you might need to put this code inside a callback function that is triggered when the API is loaded.
 //If you are using a module bundler, you might need to import the google maps API explicitly.

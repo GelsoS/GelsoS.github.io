@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salão de Beleza Encanto</title>
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Studio voce bonita" />
+    <meta property="og:image"
+        content="https://gelsos.github.io/beleza/images/Imagem%20do%20WhatsApp%20de%202025-02-04%20%C3%A0(s)%2022.41.39_580f07aa.jpg" />
+    <meta property="og:image:width" content="480" />
+    <meta property="og:image:height" content="480" />
+    <meta property="og:image:type" content="image/jpg" />
+    <meta property="og:description" content="Studio voce bonita" />
+    <meta property="og:url" content="https://gelso-schwertz.github.io/beleza" />
+    <title>Studio voce bonita</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <header>
         <div class="logo">
             <img src="images/Imagem do WhatsApp de 2025-02-04 à(s) 22.41.39_580f07aa.jpg" alt="Logo Salão Encanto">
         </div>
-        <p class="text">Estudio voce bonita </p>
+        <p class="text">Studio voce bonita </p>
         <nav>
             <div class="menu-icon">
                 <i class="fas fa-bars"></i>
@@ -30,30 +42,46 @@
         <section id="atendimento">
             <h2>Atendimento</h2>
             <div class="contato-info">
-                <p><i class="fas fa-phone"></i> (11) 1234-5678</p>
-                <p><i class="fas fa-envelope"></i> contato@salaoencanto.com</p>
-                <p><i class="fas fa-map-marker-alt"></i> Rua das Flores, 123 - São Paulo, SP</p>
+                <p><i class="fas fa-phone"></i> (47) 9763 6365</p>
+                <p><i class="fas fa-envelope"></i> moraisanapaula816@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Rua dos Pinhais, 1 - Rio das Antas, SC- 89550-000</p>
             </div>
             <div class="horario">
                 <h3>Horário de Funcionamento</h3>
-                <p>Segunda a Sábado: 9h às 20h</p>
-                <p>Domingo: 10h às 16h</p>
+                <p>terça-feira a Sábado: 8h às 18h</p>
             </div>
-            <div id="mapa"></div>
+            <!-- <div id="mapa"></div> -->
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2421.1083122196005!2d-51.06857669560358!3d-26.893078365125017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjbCsDUzJzM2LjYiUyA1McKwMDMnNTkuNCJX!5e1!3m2!1spt-BR!2sbr!4v1738847251278!5m2!1spt-BR!2sbr"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
         </section>
 
         <section id="agendamento">
             <h2>Agendamento</h2>
-            <form id="agendamento-form">
+            <form id="agendamento-form" onsubmit="enviarParaWhatsApp(event)">
+                <!-- Campo para nome -->
+                <input type="text" name="nome" placeholder="Seu nome" required>
+                
+                <!-- Campo para telefone -->
+                <input type="tel" name="telefone" placeholder="Seu telefone" required>
+        
+                <!-- Campo para selecionar o serviço -->
                 <select name="servico" required>
                     <option value="">Selecione o serviço</option>
-                    <option value="corte">Corte</option>
+                    <option value="Tratamento capilar">Tratamento capilar</option>
                     <option value="manicure">Manicure</option>
                     <option value="pedicure">Pedicure</option>
                     <option value="coloracao">Coloração</option>
                 </select>
+        
+                <!-- Campo para data -->
                 <input type="date" name="data" required>
+        
+                <!-- Campo para hora -->
                 <input type="time" name="hora" required>
+        
+                <!-- Botão de envio -->
                 <button type="submit">Agendar</button>
             </form>
         </section>
@@ -62,11 +90,11 @@
             <h2>Preços</h2>
             <div class="servicos-lista">
                 <div class="servico">
-                    <h3>Corte</h3>
+                    <h3>Tratamento capilar</h3>
                     <p>R$ 50,00</p>
                     <button class="mais-info">Mais Informações</button>
                     <div class="descricao" style="display: none;">
-                        Corte profissional personalizado de acordo com seu estilo e tipo de cabelo.
+                        Tratamento capilar profissional personalizado de acordo com seu estilo e tipo de cabelo.
                     </div>
                 </div>
                 <div class="servico">
@@ -90,7 +118,8 @@
                     <p>A partir de R$ 100,00</p>
                     <button class="mais-info">Mais Informações</button>
                     <div class="descricao" style="display: none;">
-                        Coloração profissional com produtos de alta qualidade. Preço pode variar de acordo com o comprimento do cabelo.
+                        Coloração profissional com produtos de alta qualidade. Preço pode variar de acordo com o
+                        comprimento do cabelo.
                     </div>
                 </div>
             </div>
@@ -100,15 +129,17 @@
             <h2>Amostras de Trabalho</h2>
             <div class="filtros">
                 <button class="filtro-btn ativo" data-categoria="todos">Todos</button>
-                <button class="filtro-btn" data-categoria="corte">Cortes</button>
+                <button class="filtro-btn" data-categoria="Tratamento capilar">Tratamento</button>
                 <button class="filtro-btn" data-categoria="coloracao">Coloração</button>
                 <button class="filtro-btn" data-categoria="manicure">Manicure</button>
             </div>
             <div class="galeria">
-                <img src="images/6c10d2d17d665149484210b118e197e8.jpg" alt="Corte 1" data-categoria="corte">
+                <img src="images/tratamento1.jpg" alt="Corte 1" data-categoria="Tratamento capilar">
                 <img src="images/cor.jpg" alt="Coloração 1" data-categoria="coloracao">
                 <img src="images/manicure2.jpg" alt="Manicure 1" data-categoria="manicure">
-                <img src="images/cortes.png" alt="Corte 2" data-categoria="corte">
+                <img src="images/tratamento2.jpg" alt="Corte 2" data-categoria="Tratamento capilar">
+                <img src="images/tratamento3.jpg" alt="Corte 2" data-categoria="Tratamento capilar">
+                <img src="images/tratamento4.jpg" alt="Corte 2" data-categoria="Tratamento capilar">
                 <img src="images/hq720.jpg" alt="Coloração 2" data-categoria="coloracao">
                 <img src="images/manicure.avif" alt="Manicure 2" data-categoria="manicure">
             </div>
@@ -118,7 +149,8 @@
     <footer>
         <div class="redes-sociais">
             <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/studiovocebonita2023?utm_source=qr&igsh=MXF4ZHB5aHk0YWl0eA==" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/studiovocebonita2023?utm_source=qr&igsh=MXF4ZHB5aHk0YWl0eA=="
+                target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="https://wa.me/554797636365" target="_blank"><i class="fab fa-whatsapp"></i></a>
         </div>
         <p>&copy; 2025 Salão de Beleza Encanto. Todos os direitos reservados.</p>
@@ -133,4 +165,5 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=SUA_CHAVE_API_AQUI&callback=initMap" async defer></script>
     <script src="script.js"></script>
 </body>
+
 </html>
