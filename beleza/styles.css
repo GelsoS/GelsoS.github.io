@@ -248,10 +248,14 @@ h2 {
 }
 
 footer {
-    background-color: #f8f9fa;
+    background-color: #38393a;
     padding: 2rem 1rem;
     text-align: center;
     margin-top: 3rem;
+}
+
+footer p {
+    color:#fff;
 }
 
 .redes-sociais {
@@ -259,8 +263,8 @@ footer {
 }
 
 .redes-sociais a {
-    color: #333;
-    font-size: 1.5rem;
+    color: #fff;
+    font-size: 2.5rem;
     margin: 0 0.5rem;
     transition: color 0.3s ease;
 }
