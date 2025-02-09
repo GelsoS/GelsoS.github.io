@@ -5,6 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./icon.webp" type="image/x-icon">
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Youtuber status" />
+    <meta property="og:image" content="https://gelsos.github.io/estatisticas/logo.webp" />
+    <meta property="og:image:width" content="480" />
+    <meta property="og:image:height" content="480" />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:description" content="Estatísticas de canais do YouTube" />
+    <meta property="og:url" content="https://gelso-schwertz.github.io/estatisticas" />
     <title>Estatísticas de Canais</title>
     <style>
         body {
@@ -14,14 +23,20 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f0f0f0;
+            color: #fff;
             background: rgb(2, 0, 36);
-            background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 50%, rgba(0, 212, 255, 1) 100%);
+            background: linear-gradient(165deg, rgba(2, 0, 36, 1) 0%, rgb(15 15 223) 50%, rgba(0, 212, 255, 1) 100%);
         }
 
         .container {
             text-align: center;
-            background-color: white;
+            /* From https://css.glass */
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -35,11 +50,17 @@
             padding: 0.5rem;
             margin: 0.5rem 0;
             width: calc(100% - 1rem);
+            outline-color: dodgerblue;
+        }
+
+        #estimatedEarnings {
+            color: #12e50a;
+            font-weight: 500;
         }
 
         button {
             cursor: pointer;
-            background-color: #ff0000;
+            background-color: #001183;
             color: white;
             border: none;
             width: 100%;
@@ -60,8 +81,9 @@
         }
 
         .stat-value {
-            font-size: 1.5rem;
-            color: #ff0000;
+            font-size: 2.5rem;
+            color: #000;
+            font-weight: 500;
         }
 
         #channelLogo {
