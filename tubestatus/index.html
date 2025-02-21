@@ -24,7 +24,6 @@
             height: 100vh;
             margin: 0;
             color: #fff;
-            background: rgb(2, 0, 36);
             background: linear-gradient(165deg, rgba(2, 0, 36, 1) 0%, rgb(15 15 223) 50%, rgba(0, 212, 255, 1) 100%);
         }
 
@@ -32,16 +31,16 @@
             text-align: center;
             /* From https://css.glass */
             background: rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 6px;
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 255, 255, 0.3);
             padding: 2rem;
-            border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             max-width: 500px;
             width: 100%;
+            /* Adicionando o reflexo com -webkit-box-reflect */
+            -webkit-box-reflect: below 8px linear-gradient(transparent, rgba(0, 0, 0, 0.25));
         }
 
         input,
@@ -49,7 +48,7 @@
             font-size: 1rem;
             padding: 0.5rem;
             margin: 0.5rem 0;
-            width: calc(100% - 1rem);
+            width: 100%;
             outline-color: dodgerblue;
         }
 
@@ -58,12 +57,22 @@
             font-weight: 500;
         }
 
-        button {
+        input+button {
             cursor: pointer;
             background-color: #001183;
             color: white;
             border: none;
             width: 100%;
+        }
+
+        .subscribers {}
+
+        .live {
+            width: 90px;
+        }
+
+        a {
+            color: #ffffff;
         }
 
         #result {
@@ -84,6 +93,7 @@
             font-size: 2.5rem;
             color: #000;
             font-weight: 500;
+            margin-right: 10px;
         }
 
         #channelLogo {
@@ -109,6 +119,49 @@
             right: 0;
             opacity: 0;
         }
+
+        .subscribers {
+            display: flex;
+            justify-content: center;
+        }
+
+        .subscribers .live {
+            border: none;
+            cursor: pointer;
+            position: relative;
+            /* Necessário para posicionar a bolinha */
+            font-weight: bold;
+        }
+
+        /* Criando a bolinha piscante */
+        .subscribers .live::after {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            animation: blink 1s infinite alternate;
+        }
+
+        /* Animação da bolinha piscante */
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @media screen and (max-width: 700px) {
+            .container {
+                border-radius: 0px;
+            }
+        }
     </style>
 </head>
 
@@ -129,7 +182,10 @@
         <div id="result">
             <div class="stat">
                 <span class="stat-label">Inscritos:</span>
-                <div id="subscriberCount" class="stat-value"></div>
+                <div class="subscribers">
+                    <div id="subscriberCount" class="stat-value"></div>
+                    <button class="live" onclick="param()">RealTime</button>
+                </div>
             </div>
             <div class="stat">
                 <span class="stat-label">Total de videos:</span>
@@ -142,6 +198,7 @@
             <div class="stat">
                 <span class="stat-label">Faturamento Estimado (mensal):</span>
                 <div id="estimatedEarnings" class="stat-value"></div>
+                <p></p>
             </div>
         </div>
     </div>
@@ -149,6 +206,7 @@
     <script>
         const API_KEY = 'AIzaSyBB3afpvdN1-RjX7wQ3ln9QklrYt8hRAiM';
         let updateInterval;
+        let subscribersCount;
 
         async function getChannelStats() {
             const channelName = document.getElementById('channelName').value;
@@ -183,13 +241,13 @@
             setTimeout(async () => {
                 try {
                     const statsResponse = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=${channelId}&key=${API_KEY}`);
-                    //const statsResponse = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${API_KEY}`);
                     const statsData = await statsResponse.json();
 
                     // Obtendo o país do canal
                     const country = statsData.items[0].snippet.country;
                     if (country) {
-                        document.getElementsByTagName("span")[0].innerText = statsData.items[0].snippet.customUrl;
+                        const url = statsData.items[0].snippet.customUrl
+                        document.getElementsByTagName("span")[0].innerHTML = `<a href="https://www.youtube.com/${url}">${url}</a>`;
                         document.getElementById('countryFlag').src = `https://flagcdn.com/w80/${country.toLowerCase()}.png`;
                         console.log(document.getElementsByClassName("img")[0])
                         document.getElementsByClassName("img")[0].style.opacity = "1"
@@ -197,18 +255,21 @@
                     }
                     if (statsData.items && statsData.items.length > 0) {
                         const stats = statsData.items[0].statistics;
-                        document.getElementById('subscriberCount').textContent = formatNumber(stats.subscriberCount);
                         document.getElementById('viewCount').textContent = formatNumber(stats.viewCount);
                         document.getElementById('moviesCount').textContent = formatNumber(stats.videoCount);
-
-                        // Estimativa de faturamento (muito aproximada)
-                        const estimatedEarnings = calculateEstimatedEarnings(stats.viewCount);
+                        const estimatedEarnings = await calculateEstimatedEarnings(stats.viewCount);
                         document.getElementById('estimatedEarnings').textContent = formatCurrency(estimatedEarnings);
+                        document.getElementById('subscriberCount').textContent = formatNumber(stats.subscriberCount);
+                        subscribersCount = stats.subscriberCount;
                     }
                 } catch (error) {
                     console.error('Erro ao atualizar estatísticas:', error);
                 }
-            }, 3000); // Atualiza a cada 5 segundos
+            }, 1000);
+        }
+
+        function param(parameters) {
+            window.location.href = '/tubestatus/live/index.html?subscribers=' + subscribersCount;
         }
 
         function formatNumber(num) {
@@ -219,11 +280,26 @@
             return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(num);
         }
 
-        function calculateEstimatedEarnings(viewCount) {
-            // Estimativa muito aproximada: $1 por 1000 visualizações
-            const monthlyViews = viewCount / 30; // Assumindo que viewCount é o total de todos os tempos
-            return (monthlyViews / 1000) * 5.8; // $5 por 1000 visualizações mensais
+        async function getDollarRate() {
+            // Exemplo usando a API de taxa de câmbio (substitua com uma chave de API real)
+            const response = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
+            const data = await response.json();
+            return parseFloat(data.rates.BRL.toFixed(2));
         }
+
+        async function calculateEstimatedEarnings(viewCount) {
+            const dollarRate = await getDollarRate();
+            document.getElementsByTagName("p")[0].innerText = "Dólar atual: U$" + dollarRate;
+            const monthlyViews = viewCount / 30;  // Assumindo que viewCount é o total de todos os tempos
+            // O valor em dólares por 1000 visualizações
+            return (monthlyViews / 1000) * dollarRate;
+        }
+
+        function liveCount(parameters) {
+            console.log(parameters);
+
+        }
+
     </script>
 </body>
 

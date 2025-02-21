@@ -1,57 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jogo da Velha</title>
-    <meta name="description" content="jogue conta o computador" />
-
-    <!-- Facebook Meta Tags -->
-    <meta
-      property="og:url"
-      content="https://gelsos.github.io/jogo/index.html"
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Jogo da Velha" />
-    <meta property="og:description" content="jogue conta o computador" />
-    <meta property="og:image" content="https://gelsos.github.io/img/jogo.png" />
-    <meta property="og:image:width" content="413" />
-    <meta property="og:image:height" content="508" />
-
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta property="twitter:domain" content="gelsos.github.io" />
-    <meta
-      property="twitter:url"
-      content="https://gelsos.github.io/jogo/index.html"
-    />
-    <meta name="twitter:title" content="Jogo da Velha" />
-    <meta name="twitter:description" content="jogue conta o computador" />
-    <meta name="twitter:image" content="" />
-
-    <!-- Meta Tags Generated via https://www.opengraph.xyz -->
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="game-container">
-      <div class="scoreboard">
-        <div id="scoreHuman">Humano: 0</div>
-        <div id="scoreComputer">Computador: 0</div>
-      </div>
-      <div class="board">
-        <div class="cell" id="cell0"></div>
-        <div class="cell" id="cell1"></div>
-        <div class="cell" id="cell2"></div>
-        <div class="cell" id="cell3"></div>
-        <div class="cell" id="cell4"></div>
-        <div class="cell" id="cell5"></div>
-        <div class="cell" id="cell6"></div>
-        <div class="cell" id="cell7"></div>
-        <div class="cell" id="cell8"></div>
-      </div>
-      <div id="message"></div>
-      <button id="reset">Reiniciar Jogo</button>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha - Nível Hard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Jogo da Velha - Nível Hard</h1>
+        <div class="scoreboard">
+            <p>Jogador (X): <span id="player-score">0</span></p>
+            <p>Computador (O): <span id="computer-score">0</span></p>
+        </div>
+        <div class="board">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+        <button id="reset-button">Reiniciar Jogo</button>
     </div>
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
