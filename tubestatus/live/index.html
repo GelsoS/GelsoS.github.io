@@ -4,64 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
     <title>Live Page</title>
     <style>
         /* Fundo frio e suave */
         body {
-            background-color: #1e3a5f;
-            /* Azul frio */
-            color: white;
+            background: linear-gradient(36deg, rgba(16, 190, 33, 1) 16%, rgba(2, 118, 240, 1) 100%);
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            font-size: 2rem;
+            font-weight: 900;
         }
 
-        /* Contêiner centralizado */
-        .container {
+        span {
+            font-size: 1.5rem;
+            color: #1c1c1c;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 80px;
+            font-weight: 700;
+            color: #1c1c1c;
             text-align: center;
+            margin: 20px 0;
         }
 
-        /* Estilizando o número de inscritos */
-        #subscribersCount {
-            font-size: 4rem;
-            /* Número grande */
-            font-weight: bold;
-            display: flex;
-            gap: 5px;
-        }
 
-        /* Efeito de rolagem */
-        .digit-container {
-            display: inline-block;
-            width: 40px;
-            /* Largura fixa para cada número */
-            height: 60px;
-            /* Altura fixa */
-            overflow: hidden;
-            position: relative;
-        }
-
-        .digit {
-            display: block;
-            position: absolute;
-            width: 100%;
-            text-align: center;
-            animation: rollEffect 0.5s ease-in-out;
-        }
-
-        /* Animação de rolagem */
-        @keyframes rollEffect {
-            from {
-                transform: translateY(100%);
-                opacity: 0;
+        @media screen and (max-width: 700px) {
+            #subscribersCount {
+                justify-content: center;
             }
 
-            to {
-                transform: translateY(0);
-                opacity: 1;
+            h1 {
+                font-size: 40px;
             }
         }
     </style>
@@ -69,26 +49,44 @@
 
 <body>
 
-    <h1 id="subscribersCount"></h1>
+    <div id="subscribersCount"></div>
 
     <script>
-        console.log(window.location);
+        const API_KEY = 'AIzaSyBB3afpvdN1-RjX7wQ3ln9QklrYt8hRAiM';
         if (window.location.search) {
             // Obtém os parâmetros da URL
             const urlParams = new URLSearchParams(window.location.search);
             const subscribers = urlParams.get("subscribers");
-
+            const ID = urlParams.get('id');
+            document.getElementById("subscribersCount").innerHTML = `<span>Inscritos: </span><br><h1>${subscribers}</h1>`
             // Se houver um valor válido, exibe na página
-            if (subscribers) {
-                document.getElementById("subscribersCount").textContent = `Inscritos: ${subscribers}`;
+            if (subscribers && ID) {
+                let updateInterval = setInterval(async () => {
+                    console.log(subscribers);
+
+                    try {
+                        const statsResponse = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=${ID}&key=${API_KEY}`);
+                        const statsData = await statsResponse.json();
+
+                        if (statsData.items && statsData.items[0] && statsData.items[0].statistics) {
+                            document.getElementById("subscribersCount").innerHTML = `<span>Inscritos: </span><br> <h1>${new Intl.NumberFormat('pt-BR').format(statsData.items[0].statistics.subscriberCount)}</h1>`;
+                        } else {
+                            document.getElementById("subscribersCount").textContent = "Erro ao buscar dados do canal.";
+                        }
+                    } catch (error) {
+                        document.getElementById("subscribersCount").textContent = "Erro na requisição.";
+                        console.error(error);
+                    }
+
+                }, 10000); // Atualiza a cada 10 segundos
             } else {
-                document.getElementById("subscribersCount").textContent = "Nenhum dado recebido.";
+                document.getElementById("subscribersCount").textContent = "Parâmetros inválidos.";
             }
         } else {
             document.getElementById("subscribersCount").textContent = "Nenhum parâmetro encontrado.";
         }
-
     </script>
+
 </body>
 
 </html>
