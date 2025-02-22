@@ -1,0 +1,421 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background: #000;
+    color:#fff;
+}
+
+.text{
+    color: transparent;
+    font-size: 60px;
+    font-weight: bold;
+    -webkit-text-stroke: 2px black;
+} 
+
+header {
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background: #ffd700;
+    padding: 10px 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#amostras {
+    padding: 20px; /* Adiciona um espaço ao redor do conteúdo */
+}
+
+
+.logo{
+    width: 100px;
+    margin-left: 30px;
+}
+
+.logo img {
+    max-width: 80px;
+    max-height: 80px;
+    height: auto;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-links li {
+    margin-left: 1.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #007bff;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+.text-section {
+    color: #fff; /* Texto branco */
+    text-align: center; /* Alinhamento do texto */
+    padding: 20px; /* Espaçamento interno */
+    font-family: Arial, sans-serif; /* Fonte simples */
+}
+
+.text-section p {
+    font-size: 1.2em; /* Tamanho do texto */
+    line-height: 1.5;
+    font-weight: 300; /* Texto mais suave */
+    color: #ffd700; /* Letra dourada */
+}
+
+.text-section p::first-letter {
+    font-size: 2em; /* Primeira letra maior */
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #ffd700;
+}
+
+.contato-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.contato-info p {
+    display: flex;
+    align-items: center;
+    color: #ffd700;
+}
+
+.contato-info i {
+    margin-right: 0.5rem;
+    color: #ffd700;
+}
+
+.horario {
+    margin-top: 1rem;
+    color: #ffd700;
+}
+
+#mapa {
+    height: 300px;
+    margin-top: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#agendamento-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+}
+
+#agendamento-form > * {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#agendamento-form button {
+    background-color: #ffd700;
+    color: #000;
+    border: none;
+    padding: 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#agendamento-form button:hover {
+    background-color: #0056b3;
+}
+
+.servicos-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.servico {
+    border: 1px solid #ddd;
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+}
+
+.servico:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.servico h3 {
+    margin-bottom: 0.5rem;
+    color: #ffd700;
+}
+
+.mais-info {
+    background-color: #ffd700;
+    color: #000;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.mais-info:hover {
+    background-color: #f5dc4e;
+}
+
+.descricao {
+    margin-top: 1rem;
+    font-style: italic;
+    color: #666;
+}
+
+.filtros {
+    margin-bottom: 1.5rem;
+}
+
+.filtro-btn {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 0.5rem 1.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.filtro-btn:hover {
+    background-color: #e9ecef;
+}
+
+.filtro-btn.ativo {
+    background-color: #ffd700;
+    color: #000;
+    border-color: #ffd700;
+}
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.galeria img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.galeria img:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    background-color: #38393a;
+    padding: 2rem 1rem;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+footer p {
+    color:#fff;
+}
+
+.redes-sociais {
+    margin-bottom: 1rem;
+}
+
+.redes-sociais a {
+    color: #fff;
+    font-size: 2.5rem;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.fa-facebook {
+    color: #007bff;
+}
+
+.fa-whatsapp{
+    color: green;
+}
+
+.fa-instagram{
+    background: linear-gradient(171deg, rgba(61,25,247,1) 1%, rgba(232,13,246,1) 46%, rgba(241,242,6,1) 100%);
+    border-radius: 5px;
+}
+
+.termos {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.termos:hover {
+    text-decoration: underline;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.modal-conteudo {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+.fechar {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.fechar:hover {
+    color: #bbb;
+}
+
+.iframe-container {
+    position: relative;
+    width: 50%;
+    height: 0;
+    padding-bottom: 26.25%; /* Proporção de 16:9, você pode ajustar isso dependendo da proporção do seu mapa */
+    overflow: hidden;
+    width: 100%;
+}
+
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+@media screen and (max-width: 768px) {
+    .iframe-container {
+        padding-bottom: 75%; /* Ajusta para uma proporção diferente em telas pequenas, se necessário */
+    }
+
+    .text{
+        color: transparent;
+        font-size: 7vw;
+        font-weight: bold;
+        -webkit-text-stroke: 0.3vw black;
+        margin-left: 0;
+    } 
+    
+    .menu-icon {
+        display: block;
+        color: #0056b3;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #f8f9fa;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.show {
+        margin-top: 9%;
+        display: flex;
+        /* From https://css.glass */
+        background: rgba(9, 4, 79, 0.51);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5.1px);
+        -webkit-backdrop-filter: blur(5.1px);
+        border: 1px solid rgba(9, 4, 79, 1);
+    }
+
+    .nav-links li {
+        margin: 0;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .nav-links li a{
+        color: #fff;
+    }
+
+    .contato-info {
+        flex-direction: column;
+    }
+
+    .servicos-lista {
+        grid-template-columns: 1fr;
+    }
+
+    .galeria {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .modal-conteudo {
+        width: 95%;
+    }
+}

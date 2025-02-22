@@ -16,6 +16,13 @@ body {
   background: #ccc;
 }
 
+.paginas{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
 .irrf {
   text-align: center; /* Centraliza o conteúdo da seção */
   margin: 20px 0; /* Espaçamento superior e inferior */
@@ -360,12 +367,9 @@ img.fullscreen {
 
 /* Estilizando a área do ícone de TV */
 .tv-link {
-  background-color: #000; 
   border-radius: 5px;
   padding: 15px;
-  color: red;
   font-size: 34px; /* Tamanho do ícone */
-  transition: background-color 0.3s;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -415,6 +419,14 @@ marquee {
 
 @media screen and (max-width: 720px) {
   iframe {
+    width: 100%;
+  }
+
+  .paginas{
+    display: block;
+  }
+
+  .irrf a{
     width: 100%;
   }
 

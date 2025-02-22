@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Studio voce bonita" />
+    <meta property="og:image"
+        content="https://gelsos.github.io/beleza/images/Imagem%20do%20WhatsApp%20de%202025-02-04%20%C3%A0(s)%2022.41.39_580f07aa.jpg" />
+    <meta property="og:image:width" content="480" />
+    <meta property="og:image:height" content="480" />
+    <meta property="og:image:type" content="image/jpg" />
+    <meta property="og:description" content="Studio voce bonita" />
+    <meta property="og:url" content="https://gelso-schwertz.github.io/beleza" />
+    <link rel="shortcut icon" href="images/favico.png" type="image/x-icon">
+    <title>Studio voce bonita</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/Imagem do WhatsApp de 2025-02-04 à(s) 22.41.39_580f07aa.jpg" alt="Logo Salão Encanto">
+        </div>
+        <p class="text">Studio voce bonita </p>
+        <nav>
+            <div class="menu-icon">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#atendimento">Atendimento</a></li>
+                <li><a href="#agendamento">Agendamento</a></li>
+                <li><a href="#precos">Preços</a></li>
+                <li><a href="#amostras">Amostras de Trabalho</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="amostras">
+            <h2>Amostras de Trabalho</h2>
+            <div class="filtros">
+                <button class="filtro-btn ativo" data-categoria="todos">Todos</button>
+                <button class="filtro-btn" data-categoria="Tratamento capilar">Tratamento</button>
+                <button class="filtro-btn" data-categoria="coloracao">Coloração</button>
+                <button class="filtro-btn" data-categoria="progressiva">Progressiva</button>
+                <button class="filtro-btn" data-categoria="botox">Botox</button>
+            </div>
+            <div class="galeria">
+                <img src="images/tratamento1.jpg" alt="Corte 1" data-categoria="Tratamento capilar">
+                <img src="images/cor.jpg" alt="Coloração" data-categoria="coloracao">
+                <img src="images/cor1.jpg" alt="Coloração" data-categoria="coloracao">
+                <img src="images/cor2.jpg" alt="Coloração" data-categoria="coloracao">
+                <img src="images/cor3.jpg" alt="Coloração" data-categoria="coloracao">
+                <img src="images/cor4.jpg" alt="Coloração" data-categoria="coloracao">
+                <img src="images/progressiva.jpg" alt="progressiva" data-categoria="progressiva">
+                <img src="images/tratamento2.jpg" alt="Corte 2" data-categoria="Tratamento capilar">
+                <img src="images/tratamento3.jpg" alt="Corte 2" data-categoria="Tratamento capilar">
+            </div>
+        </section>
+        <section id="precos">
+            <h2>Preços</h2>
+            <div class="servicos-lista">
+                <div class="servico">
+                    <h3>Tratamento capilar</h3>
+                    <p>a partir de R$ 250,00</p>
+                    <button class="mais-info">Mais Informações</button>
+                    <div class="descricao" style="display: none;">
+                        Tratamento capilar profissional personalizado de acordo com seu estilo e tipo de cabelo.
+                    </div>
+                </div>
+                <div class="servico">
+                    <h3>progressiva</h3>
+                    <p>a patir de R$ 150,00</p>
+                    <button class="mais-info">Mais Informações</button>
+                    <div class="descricao" style="display: none;">
+                        Cuidados completos para seu cabelo.
+                    </div>
+                </div>
+                <div class="servico">
+                    <h3>Botox</h3>
+                    <p>a partir de R$ 80,00</p>
+                    <button class="mais-info">Mais Informações</button>
+                    <div class="descricao" style="display: none;">
+                        Tratamento completo
+                    </div>
+                </div>
+                <div class="servico">
+                    <h3>Coloração</h3>
+                    <p>A partir de R$ 160,00</p>
+                    <button class="mais-info">Mais Informações</button>
+                    <div class="descricao" style="display: none;">
+                        Coloração profissional com produtos de alta qualidade. Preço pode variar de acordo com o
+                        comprimento do cabelo.
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="atendimento">
+            <h2>Atendimento</h2>
+            <div class="contato-info">
+                <p><i class="fas fa-phone"></i> (47) 9763 6365</p>
+                <p><i class="fas fa-envelope"></i> moraisanapaula816@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Rua dos Pinhais, 1 - Rio das Antas, SC- 89550-000</p>
+            </div>
+        </section>
+        <hr>
+        <div class="horario">
+            <h3>Horário de Funcionamento</h3>
+            <p>terça-feira a Sábado: 8h às 18h</p>
+        </div>
+        <hr><br>
+        <section id="agendamento">
+            <h2>Agendamento</h2>
+            <form id="agendamento-form" onsubmit="enviarParaWhatsApp(event)">
+                <input type="text" name="nome" placeholder="Seu nome" required>
+                <input type="tel" name="telefone" placeholder="Seu telefone" required>
+                <select name="servico" required>
+                    <option value="">Selecione o serviço</option>
+                    <option value="Tratamento capilar">Tratamento capilar</option>
+                    <option value="progressiva">progressiva</option>
+                    <option value="Botox">Botox</option>
+                    <option value="coloracao">Coloração</option>
+                </select>
+                <input type="date" name="data" required>
+                <input type="time" name="hora" required>
+                <button type="submit">Agendar</button>
+            </form>
+            <div class="iframe-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d3423.96422218163!2d-51.068577!3d-26.893078!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjbCsDUzJzM2LjYiUyA1McKwMDMnNTkuNCJX!5e1!3m2!1spt-BR!2sbr!4v1738849214264!5m2!1spt-BR!2sbr"
+                    frameborder="0" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <div class="text-section">
+                <p>
+                    Você merece o que há de melhor. Por isso os nossos serviços estão aqui, para você contar com
+                    especialistas no assunto do mundo da beleza onde você entra bonita, mas sai com um visual
+                    espetacular. Agende seu horário e desfrute dos serviços.
+                </p>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <div class="redes-sociais">
+            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/studiovocebonita2023?utm_source=qr&igsh=MXF4ZHB5aHk0YWl0eA=="
+                target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/554797636365" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p>&copy; 2025 Salão de Beleza Encanto. Todos os direitos reservados. by Gelso Schwertz</p>
+        <a href="#" class="termos">Termos e Condições</a>
+    </footer>
+
+    <div id="modal" class="modal">
+        <span class="fechar">&times;</span>
+        <img class="modal-conteudo" id="img-ampliada">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
