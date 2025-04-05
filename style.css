@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
 }
 
 body {
@@ -12,7 +12,16 @@ body {
   font-family: Arial, sans-serif;
   /* Fonte padrão */
   text-align: center;
-  color: #333;
+  /* color: #333; */
+  position: relative;
+  z-index: 1;
+}
+
+canvas {
+  position: absolute;
+  top: 170px;
+  left: 0;
+  z-index: -1; /* Coloca o canvas atrás do conteúdo */
 }
 
 .paginas{
@@ -64,6 +73,7 @@ body {
   /* Bordas arredondadas */
   position: relative;
   /* Para manipular a posição do legend */
+  color: #fff;
 }
 
 .sobre fieldset legend {
@@ -187,7 +197,7 @@ footer {
 .social-link {
   display: flex;
   align-items: center;
-  color: #0077b5;
+  color: #fff;
   text-decoration: none;
   font-size: 1.2em;
   /* Ajuste o tamanho da fonte conforme necessário */
@@ -200,10 +210,6 @@ footer {
 .social-link i {
   margin-right: 8px;
   /* Espaçamento entre ícone e texto */
-}
-
-.social-link {
-  color: #000;
 }
 
 /* Estilo para o link do GitHub */
