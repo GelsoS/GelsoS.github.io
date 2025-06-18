@@ -211,23 +211,34 @@
             let totalIRRF = 0;
 
             lines.forEach(line => {
-                const parts = line.split('\t');
-                if (parts.length >= 4) {
-                    const description = parts[3];
-                    const value = parseFloat(parts[2].replace(',', '.'));
+                const cleanLine = line.trim();
+                if (!cleanLine) return;
 
-                    if (description.includes("AJUSTE DAY-TRADE")) {
-                        totalAdjustments += value;
-                    } else if (description.includes("BMF - TAXA")) {
-                        totalFees += Math.abs(value);
-                    } else if (description.includes("IRRF S/ DAY TRADE")) {
-                        totalIRRF += Math.abs(value);
+                // Pega os valores numéricos e descrições
+                const regex = /([-\d.,]+)\s+([-\d.,]+)?\s*(Crédito|Débito)?$/;
+                const match = cleanLine.match(regex);
+                console.log(cleanLine);
+                
+                if (match) {
+                    const valorBruto = parseFloat(match[1].replace('.', '').replace(',', '.'));
+                    const tipoLancamento = match[3] || '';
+                    const descricao = cleanLine;
+
+                    if (descricao.includes("AJUSTE DAY-TRADE")) {
+                        // Ajustes são sempre positivos para cálculo de lucro
+                        totalAdjustments += Math.abs(valorBruto);
+                    } else if (descricao.includes("IRRF S/DAY-TRADE")) {
+                        console.log(valorBruto);
+                        
+                        totalIRRF += Math.abs(valorBruto);
+                    } else if (descricao.includes("LIQUIDO DAS OPERAÇÕES")) {
+                        totalFees += Math.abs(valorBruto);
                     }
                 }
             });
 
             const netProfit = totalAdjustments - totalFees - totalIRRF;
-            const taxDue = Math.max(netProfit * 0.2, 0);
+            const taxDue = netProfit > 0 ? netProfit * 0.2 : 0;
             const adjustmentDate = new Date().toLocaleDateString("pt-BR");
 
             const [year, month] = monthReference.split('-');
@@ -243,12 +254,15 @@
             document.getElementById("exportBtn").classList.remove("hidden");
             document.getElementById("totalAdjustments").innerText = totalAdjustments.toFixed(2);
             document.getElementById("totalFees").innerText = totalFees.toFixed(2);
+            console.log(typeof totalIRRF, totalFees, totalIRRF);
+            
             document.getElementById("totalIRRF").innerText = totalIRRF.toFixed(2);
             document.getElementById("netProfit").innerText = netProfit.toFixed(2);
             document.getElementById("taxDue").innerText = taxDue.toFixed(2);
             document.getElementById("adjustmentDate").innerText = adjustmentDate;
             document.getElementById("monthDisplay").innerText = formattedMonth;
         }
+
 
         function restoreHistory(savedOperations) {
             if (savedOperations) {
