@@ -5,41 +5,46 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gelso Schwertz | Desenvolvedor Fullstack</title>
-  <!-- Tailwind CSS via CDN para prototipagem rápida -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="shortcut icon" href="img/images.png" type="image/x-icon" />
   <meta property="og:locale" content="pt_BR" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Gelso Schwertz | Portfólio" />
   <meta property="og:image" content="https://gelsos.github.io/img/gelso-removebg-preview.png" />
-  <meta property="og:description" content="Desenvolvedor Fullstack apaixonado por tecnologia e soluções inovadoras." />
+  <meta property="og:description" content="Portfolio de Gelso Schwertz - Desenvolvedor Fullstack" />
   <meta property="og:url" content="https://gelsos.github.io" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Inter', sans-serif; }
+    body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
     .glass-card {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.03);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.05);
     }
     .gradient-text {
       background: linear-gradient(90deg, #3b82f6, #8b5cf6);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(59, 130, 246, 0.4);
+    }
   </style>
 </head>
 
-<body class="bg-slate-900 text-slate-200 selection:bg-blue-500/30">
+<body class="bg-[#0f172a] text-slate-200 selection:bg-blue-500/30">
   <!-- Navbar -->
-  <nav class="fixed top-0 w-full z-50 glass-card border-b border-slate-800">
+  <nav class="fixed top-0 w-full z-50 glass-card border-b border-white/5">
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
       <span class="font-bold text-xl gradient-text">GS.</span>
       <div class="hidden md:flex space-x-8 text-sm font-medium">
         <a href="#sobre" class="hover:text-blue-400 transition">Sobre</a>
+        <a href="#destaque" class="hover:text-blue-400 transition">Destaque</a>
         <a href="#projetos" class="hover:text-blue-400 transition">Projetos</a>
-        <a href="#contato" class="hover:text-blue-400 transition">Contato</a>
+        <a href="#vanilla" class="hover:text-blue-400 transition">Vanilla</a>
+        <a href="#python" class="hover:text-blue-400 transition">Python</a>
       </div>
     </div>
   </nav>
@@ -49,10 +54,10 @@
     <div class="max-w-4xl mx-auto text-center">
       <div class="relative inline-block mb-8">
         <img src="img/gelso-removebg-preview.png" alt="Gelso Schwertz" class="w-32 h-32 rounded-2xl object-cover ring-4 ring-blue-500/20 mx-auto shadow-2xl" />
-        <div class="absolute -bottom-2 -right-2 bg-green-500 w-6 h-6 rounded-full border-4 border-slate-900 animate-pulse"></div>
+        <div class="absolute -bottom-2 -right-2 bg-green-500 w-6 h-6 rounded-full border-4 border-[#0f172a] animate-pulse"></div>
       </div>
       <h1 class="text-5xl md:text-6xl font-bold mb-4 tracking-tight">Olá, eu sou <span class="gradient-text">Gelso Schwertz</span></h1>
-      <p class="text-xl text-slate-400 mb-8 max-w-2xl mx-auto">Desenvolvedor Fullstack focado em construir experiências digitais modernas, performáticas e escaláveis.</p>
+      <p class="text-xl text-slate-400 mb-8 max-w-2xl mx-auto">Desenvolvedor Fullstack apaixonado por tecnologia e soluções inovadoras.</p>
       <div class="flex flex-wrap justify-center gap-4">
         <a href="https://www.linkedin.com/in/gelso-schwertz/" target="_blank" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition flex items-center gap-2">
           <i class="fab fa-linkedin"></i> LinkedIn
@@ -60,15 +65,20 @@
         <a href="https://github.com/GelsoS" target="_blank" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 rounded-lg font-semibold transition flex items-center gap-2 border border-slate-700">
           <i class="fab fa-github"></i> GitHub
         </a>
-        <a href="Gelso.pdf" download class="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 rounded-lg font-semibold transition flex items-center gap-2">
-          <i class="fas fa-file-download"></i> Currículo
-        </a>
+        <div class="flex gap-2">
+            <a href="Gelso.pdf" download class="px-4 py-3 bg-emerald-600 hover:bg-emerald-700 rounded-lg font-semibold transition flex items-center gap-2">
+                <i class="fas fa-file-download"></i> Currículo
+            </a>
+            <a href="./certificates/index.html" class="px-4 py-3 bg-amber-600 hover:bg-amber-700 rounded-lg font-semibold transition flex items-center gap-2">
+                <i class="fas fa-certificate"></i> Certificados
+            </a>
+        </div>
       </div>
     </div>
   </header>
 
   <!-- About Section -->
-  <section id="sobre" class="py-20 px-6 bg-slate-800/50">
+  <section id="sobre" class="py-20 px-6 bg-slate-900/50">
     <div class="max-w-4xl mx-auto">
       <div class="flex items-center gap-4 mb-8">
         <div class="h-1 w-12 bg-blue-500 rounded"></div>
@@ -76,8 +86,8 @@
       </div>
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div class="space-y-4 text-slate-400 leading-relaxed">
-          <p>Apaixonado por tecnologia e em busca constante de novos desafios. Com experiência em projetos web fullstack, foco na criação de soluções que entregam valor real aos usuários.</p>
-          <p>Minha stack principal envolve <span class="text-blue-400">JavaScript/TypeScript</span>, <span class="text-blue-400">React</span>, <span class="text-blue-400">Node.js</span> e bancos de dados como <span class="text-blue-400">MySQL</span> e <span class="text-blue-400">MongoDB</span>.</p>
+          <p>Desenvolvedor Fullstack, apaixonado pela área de tecnologia e em busca de novos desafios. Com experiência em projetos web, sou capaz de trabalhar em equipe para criar soluções inovadoras e de qualidade para os usuários e/ou clientes.</p>
+          <p>Minhas principais habilidades incluem programação em <span class="text-blue-400">JavaScript, TypeScript, Python3, HTML, CSS, React, Node.js, MySQL e MongoDB</span>.</p>
         </div>
         <div class="grid grid-cols-2 gap-4">
           <div class="p-4 glass-card rounded-xl text-center">
@@ -101,85 +111,262 @@
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projetos" class="py-20 px-6">
+  <!-- Featured Project Section -->
+  <section id="destaque" class="py-20 px-6">
+    <div class="max-w-4xl mx-auto">
+        <div class="flex items-center gap-4 mb-8">
+            <div class="h-1 w-12 bg-amber-500 rounded"></div>
+            <h2 class="text-3xl font-bold">Projeto FullStack em Destaque</h2>
+        </div>
+        <div class="glass-card rounded-3xl overflow-hidden p-8 border border-amber-500/20">
+            <div class="mb-6">
+                <h3 class="text-2xl font-bold mb-2">Site de Classificados</h3>
+                <p class="text-slate-400">Desenvolvido com React.js, Node.js e MySQL. Atualmente sendo aprimorado com novos recursos.</p>
+            </div>
+            <div class="bg-amber-500/10 border border-amber-500/20 rounded-xl p-4 mb-8 flex items-center gap-3">
+                <i class="fas fa-hammer text-amber-500 animate-bounce"></i>
+                <span class="text-amber-200 text-sm font-medium uppercase tracking-wider">Em desenvolvimento constante</span>
+            </div>
+            <div class="aspect-video rounded-2xl overflow-hidden bg-black shadow-2xl">
+                <iframe src="https://player.vimeo.com/video/1016850463?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen" class="w-full h-full"></iframe>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Course Projects Section -->
+  <section id="projetos" class="py-20 px-6 bg-slate-900/30">
     <div class="max-w-6xl mx-auto">
       <div class="flex items-center gap-4 mb-12">
         <div class="h-1 w-12 bg-purple-500 rounded"></div>
-        <h2 class="text-3xl font-bold">Projetos em Destaque</h2>
+        <h2 class="text-3xl font-bold">Projetos do Curso</h2>
       </div>
       
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Project Card 1 -->
-        <div class="group relative overflow-hidden rounded-2xl glass-card hover:border-blue-500/50 transition-all duration-300">
-          <div class="aspect-video bg-slate-800 overflow-hidden">
-            <img src="img/tfc.png" alt="TFC" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+        <!-- TFC -->
+        <div class="group project-card rounded-2xl glass-card transition-all duration-300 overflow-hidden flex flex-col">
+          <div class="aspect-video overflow-hidden bg-slate-800">
+            <img src="img/tfc.png" alt="TFC" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
           </div>
-          <div class="p-6">
+          <div class="p-6 flex-grow flex flex-col">
             <h3 class="text-xl font-bold mb-2">Trybe Futebol Clube (TFC)</h3>
-            <p class="text-slate-400 text-sm mb-4">API Fullstack com TypeScript e Docker para gerenciamento de campeonatos de futebol.</p>
-            <div class="flex flex-wrap gap-2 mb-6">
+            <p class="text-slate-400 text-sm mb-4 flex-grow">Site informativo sobre partidas e classificações de futebol com API dockerizada e TDD.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
               <span class="px-2 py-1 bg-blue-500/10 text-blue-400 text-[10px] font-bold rounded uppercase">TypeScript</span>
               <span class="px-2 py-1 bg-green-500/10 text-green-400 text-[10px] font-bold rounded uppercase">Node.js</span>
-              <span class="px-2 py-1 bg-purple-500/10 text-purple-400 text-[10px] font-bold rounded uppercase">Sequelize</span>
+              <span class="px-2 py-1 bg-purple-500/10 text-purple-400 text-[10px] font-bold rounded uppercase">Docker</span>
             </div>
-            <a href="https://github.com/GelsoS/TFC" target="_blank" class="text-blue-400 text-sm font-semibold hover:underline">Ver no GitHub →</a>
+            <a href="https://github.com/GelsoS/TFC" target="_blank" class="text-blue-400 text-sm font-semibold hover:text-blue-300 transition">Ver no GitHub →</a>
           </div>
         </div>
 
-        <!-- Project Card 2 -->
-        <div class="group relative overflow-hidden rounded-2xl glass-card hover:border-blue-500/50 transition-all duration-300">
-          <div class="aspect-video bg-slate-800 overflow-hidden">
-            <img src="img/delivery.png" alt="Delivery App" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+        <!-- Delivery App -->
+        <div class="group project-card rounded-2xl glass-card transition-all duration-300 overflow-hidden flex flex-col">
+          <div class="aspect-video overflow-hidden bg-slate-800">
+            <img src="img/delivery.png" alt="Delivery App" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
           </div>
-          <div class="p-6">
+          <div class="p-6 flex-grow flex flex-col">
             <h3 class="text-xl font-bold mb-2">App de Delivery</h3>
-            <p class="text-slate-400 text-sm mb-4">Aplicação completa de delivery de bebidas com painel administrativo e cliente.</p>
-            <div class="flex flex-wrap gap-2 mb-6">
+            <p class="text-slate-400 text-sm mb-4 flex-grow">Aplicação completa de delivery para distribuidora de bebidas com CRUD e Sequelize.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
               <span class="px-2 py-1 bg-blue-500/10 text-blue-400 text-[10px] font-bold rounded uppercase">React</span>
               <span class="px-2 py-1 bg-green-500/10 text-green-400 text-[10px] font-bold rounded uppercase">Express</span>
               <span class="px-2 py-1 bg-yellow-500/10 text-yellow-400 text-[10px] font-bold rounded uppercase">MySQL</span>
             </div>
-            <a href="https://github.com/GelsoS/delivery-app" target="_blank" class="text-blue-400 text-sm font-semibold hover:underline">Ver no GitHub →</a>
+            <a href="https://github.com/GelsoS/delivery-app" target="_blank" class="text-blue-400 text-sm font-semibold hover:text-blue-300 transition">Ver no GitHub →</a>
           </div>
         </div>
 
-        <!-- Project Card 3 -->
-        <div class="group relative overflow-hidden rounded-2xl glass-card hover:border-blue-500/50 transition-all duration-300">
-          <div class="aspect-video bg-slate-800 overflow-hidden">
-            <img src="img/pokedex.png" alt="Pokedex" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+        <!-- TrybeTunes -->
+        <div class="group project-card rounded-2xl glass-card transition-all duration-300 overflow-hidden flex flex-col">
+          <div class="aspect-video flex items-center justify-center bg-slate-800 p-4">
+            <i class="fas fa-music text-6xl text-pink-500"></i>
           </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">Pokédex RTL</h3>
-            <p class="text-slate-400 text-sm mb-4">Aplicação React focada em testes automatizados com React Testing Library.</p>
-            <div class="flex flex-wrap gap-2 mb-6">
+          <div class="p-6 flex-grow flex flex-col">
+            <h3 class="text-xl font-bold mb-2">TrybeTunes</h3>
+            <p class="text-slate-400 text-sm mb-4 flex-grow">Aplicação capaz de reproduzir músicas de variadas bandas e artistas, com login e favoritos.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
               <span class="px-2 py-1 bg-blue-500/10 text-blue-400 text-[10px] font-bold rounded uppercase">React</span>
+              <span class="px-2 py-1 bg-pink-500/10 text-pink-400 text-[10px] font-bold rounded uppercase">API</span>
+            </div>
+            <a href="https://trybe-tunes-puce.vercel.app/" target="_blank" class="text-blue-400 text-sm font-semibold hover:text-blue-300 transition">Acessar App →</a>
+          </div>
+        </div>
+
+        <!-- Trybe Wallet -->
+        <div class="group project-card rounded-2xl glass-card transition-all duration-300 overflow-hidden flex flex-col">
+          <div class="aspect-video flex items-center justify-center bg-slate-800 p-4">
+            <i class="fas fa-wallet text-6xl text-emerald-500"></i>
+          </div>
+          <div class="p-6 flex-grow flex flex-col">
+            <h3 class="text-xl font-bold mb-2">Trybe Wallet</h3>
+            <p class="text-slate-400 text-sm mb-4 flex-grow">Carteira online com conversor de moedas, controle de gastos e Redux.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-1 bg-blue-500/10 text-blue-400 text-[10px] font-bold rounded uppercase">React</span>
+              <span class="px-2 py-1 bg-purple-500/10 text-purple-400 text-[10px] font-bold rounded uppercase">Redux</span>
+            </div>
+            <a href="https://trybe-wallet-xi-three.vercel.app/" target="_blank" class="text-blue-400 text-sm font-semibold hover:text-blue-300 transition">Acessar App →</a>
+          </div>
+        </div>
+
+        <!-- Car Shop -->
+        <div class="group project-card rounded-2xl glass-card transition-all duration-300 overflow-hidden flex flex-col">
+          <div class="aspect-video overflow-hidden bg-slate-800">
+            <img src="img/CARSHOP.png" alt="Car Shop" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          </div>
+          <div class="p-6 flex-grow flex flex-col">
+            <h3 class="text-xl font-bold mb-2">Car Shop</h3>
+            <p class="text-slate-400 text-sm mb-4 flex-grow">API Backend com TypeScript e POO para gerenciar uma concessionária de veículos.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-1 bg-blue-500/10 text-blue-400 text-[10px] font-bold rounded uppercase">TypeScript</span>
+              <span class="px-2 py-1 bg-green-500/10 text-green-400 text-[10px] font-bold rounded uppercase">MongoDB</span>
+              <span class="px-2 py-1 bg-red-500/10 text-red-400 text-[10px] font-bold rounded uppercase">Mongoose</span>
+            </div>
+            <a href="https://github.com/GelsoS/CarShop" target="_blank" class="text-blue-400 text-sm font-semibold hover:text-blue-300 transition">Ver no GitHub →</a>
+          </div>
+        </div>
+
+        <!-- Solar System -->
+        <div class="group project-card rounded-2xl glass-card transition-all duration-300 overflow-hidden flex flex-col">
+          <div class="aspect-video flex items-center justify-center bg-slate-800 p-4">
+            <i class="fas fa-sun text-6xl text-yellow-500"></i>
+          </div>
+          <div class="p-6 flex-grow flex flex-col">
+            <h3 class="text-xl font-bold mb-2">Sistema Solar</h3>
+            <p class="text-slate-400 text-sm mb-4 flex-grow">Modelo do sistema solar com detalhes das missões realizadas.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-1 bg-blue-500/10 text-blue-400 text-[10px] font-bold rounded uppercase">React</span>
+              <span class="px-2 py-1 bg-yellow-500/10 text-yellow-400 text-[10px] font-bold rounded uppercase">CSS</span>
+            </div>
+            <a href="https://solar-system-seven-bice.vercel.app/" target="_blank" class="text-blue-400 text-sm font-semibold hover:text-blue-300 transition">Acessar App →</a>
+          </div>
+        </div>
+
+        <!-- Trivia -->
+        <div class="group project-card rounded-2xl glass-card transition-all duration-300 overflow-hidden flex flex-col">
+          <div class="aspect-video flex items-center justify-center bg-slate-800 p-4">
+            <i class="fas fa-gamepad text-6xl text-indigo-500"></i>
+          </div>
+          <div class="p-6 flex-grow flex flex-col">
+            <h3 class="text-xl font-bold mb-2">Trivia Game</h3>
+            <p class="text-slate-400 text-sm mb-4 flex-grow">Jogo de perguntas e respostas baseado no Trivia, utilizando React e Redux.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-1 bg-blue-500/10 text-blue-400 text-[10px] font-bold rounded uppercase">React</span>
+              <span class="px-2 py-1 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold rounded uppercase">Redux</span>
+            </div>
+            <a href="https://trivia-snowy.vercel.app/" target="_blank" class="text-blue-400 text-sm font-semibold hover:text-blue-300 transition">Acessar App →</a>
+          </div>
+        </div>
+
+        <!-- Recipes App -->
+        <div class="group project-card rounded-2xl glass-card transition-all duration-300 overflow-hidden flex flex-col">
+          <div class="aspect-video flex items-center justify-center bg-slate-800 p-4">
+            <i class="fas fa-utensils text-6xl text-orange-500"></i>
+          </div>
+          <div class="p-6 flex-grow flex flex-col">
+            <h3 class="text-xl font-bold mb-2">Recipes App</h3>
+            <p class="text-slate-400 text-sm mb-4 flex-grow">App de receitas com busca, filtros e progresso, usando Hooks e Context API.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-1 bg-blue-500/10 text-blue-400 text-[10px] font-bold rounded uppercase">Hooks</span>
+              <span class="px-2 py-1 bg-orange-500/10 text-orange-400 text-[10px] font-bold rounded uppercase">Context API</span>
+            </div>
+            <a href="https://recipes-app-kappa-tawny.vercel.app/" target="_blank" class="text-blue-400 text-sm font-semibold hover:text-blue-300 transition">Acessar App →</a>
+          </div>
+        </div>
+
+        <!-- RTL / Pokedex -->
+        <div class="group project-card rounded-2xl glass-card transition-all duration-300 overflow-hidden flex flex-col">
+          <div class="aspect-video overflow-hidden bg-slate-800">
+            <img src="img/pokedex.png" alt="Pokedex" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          </div>
+          <div class="p-6 flex-grow flex flex-col">
+            <h3 class="text-xl font-bold mb-2">React Testing Library</h3>
+            <p class="text-slate-400 text-sm mb-4 flex-grow">Testes automatizados focados no comportamento do usuário com RTL e Jest.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
               <span class="px-2 py-1 bg-red-500/10 text-red-400 text-[10px] font-bold rounded uppercase">Jest</span>
               <span class="px-2 py-1 bg-pink-500/10 text-pink-400 text-[10px] font-bold rounded uppercase">RTL</span>
             </div>
-            <a href="https://github.com/GelsoS/RTL" target="_blank" class="text-blue-400 text-sm font-semibold hover:underline">Ver no GitHub →</a>
+            <a href="https://rtl-jade.vercel.app/" target="_blank" class="text-blue-400 text-sm font-semibold hover:text-blue-300 transition">Acessar App →</a>
           </div>
         </div>
-      </div>
-      
-      <div class="mt-16 text-center">
-        <a href="https://github.com/GelsoS" target="_blank" class="px-8 py-4 glass-card hover:bg-slate-800 rounded-xl font-bold transition inline-flex items-center gap-2">
-          Ver todos os projetos no GitHub <i class="fas fa-external-link-alt text-sm"></i>
-        </a>
       </div>
     </div>
   </section>
 
+  <!-- Vanilla Projects Section -->
+  <section id="vanilla" class="py-20 px-6 bg-slate-[#0f172a]">
+    <div class="max-w-6xl mx-auto">
+        <div class="flex items-center gap-4 mb-12">
+            <div class="h-1 w-12 bg-green-500 rounded"></div>
+            <h2 class="text-3xl font-bold">Projetos Vanilla JS</h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <a href="jogo/index.html" class="group glass-card p-6 rounded-2xl text-center hover:bg-slate-800/50 transition">
+                <img src="img/jogo.png" alt="Jogo" class="w-16 h-16 mx-auto mb-4 object-contain group-hover:scale-110 transition">
+                <span class="text-sm font-semibold">Jogo da Velha</span>
+            </a>
+            <a href="conversorBases/index.html" class="group glass-card p-6 rounded-2xl text-center hover:bg-slate-800/50 transition">
+                <img src="img/conversor.png" alt="Conversor" class="w-16 h-16 mx-auto mb-4 object-contain group-hover:scale-110 transition">
+                <span class="text-sm font-semibold">Switch Numbers</span>
+            </a>
+            <a href="matrix/index.html" class="group glass-card p-6 rounded-2xl text-center hover:bg-slate-800/50 transition">
+                <img src="img/matrix.png" alt="Matrix" class="w-16 h-16 mx-auto mb-4 object-contain group-hover:scale-110 transition">
+                <span class="text-sm font-semibold">Matrix Effect</span>
+            </a>
+            <a href="converter/index.html" class="group glass-card p-6 rounded-2xl text-center hover:bg-slate-800/50 transition">
+                <img src="img/romanos.png" alt="Romanos" class="w-16 h-16 mx-auto mb-4 object-contain group-hover:scale-110 transition">
+                <span class="text-sm font-semibold">Números Romanos</span>
+            </a>
+        </div>
+    </div>
+  </section>
+
+  <!-- Python Projects Section -->
+  <section id="python" class="py-20 px-6 bg-slate-900/50">
+    <div class="max-w-4xl mx-auto">
+        <div class="flex items-center gap-4 mb-12">
+            <div class="h-1 w-12 bg-yellow-500 rounded"></div>
+            <h2 class="text-3xl font-bold">Projetos com Python</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="glass-card p-6 rounded-2xl">
+                <div class="aspect-video rounded-xl overflow-hidden mb-4">
+                    <iframe src="https://www.youtube.com/embed/a6wWS_hVArc" class="w-full h-full" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <h3 class="font-bold mb-2">Organizador Automático</h3>
+                <p class="text-slate-400 text-sm mb-4">Script Python para organização automática de diretórios.</p>
+                <a href="https://mega.nz/folder/9gJxAADB#NOGnc8vjKDUQpdDDvcbFTg" target="_blank" class="inline-block px-4 py-2 bg-yellow-600/20 text-yellow-400 rounded-lg text-sm font-bold">Baixar Aplicativo</a>
+            </div>
+            <div class="glass-card p-6 rounded-2xl flex flex-col">
+                <div class="aspect-video rounded-xl overflow-hidden mb-4 bg-slate-800">
+                    <img src="img/rem.jpeg" alt="Remover Senha" class="w-full h-full object-cover">
+                </div>
+                <h3 class="font-bold mb-2">Remover Senha PDF</h3>
+                <p class="text-slate-400 text-sm mb-4 flex-grow">Ferramenta em Python para remover senhas de arquivos PDF.</p>
+                <a href="https://github.com/GelsoS/clearpasword" target="_blank" class="text-blue-400 text-sm font-semibold">Ver no GitHub →</a>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Utils Section -->
+  <section class="py-12 px-6">
+    <div class="max-w-4xl mx-auto flex flex-wrap justify-center gap-4">
+        <a href="./calculator/index.html" class="px-4 py-2 glass-card rounded-full text-xs hover:text-blue-400 transition">IRRF Day Trade</a>
+        <a href="./tv/index.html" class="px-4 py-2 glass-card rounded-full text-xs hover:text-blue-400 transition">Web TV</a>
+        <a href="./tubestatus/index.html" class="px-4 py-2 glass-card rounded-full text-xs hover:text-blue-400 transition">Youtubers Status</a>
+        <a href="./salao/index.html" class="px-4 py-2 glass-card rounded-full text-xs hover:text-blue-400 transition">Salão de Beleza</a>
+    </div>
+  </section>
+
   <!-- Footer -->
-  <footer id="contato" class="py-12 border-t border-slate-800">
+  <footer id="contato" class="py-12 border-t border-white/5">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-2xl font-bold mb-6">Vamos conversar?</h2>
       <div class="flex justify-center gap-6 mb-8">
-        <a href="https://www.linkedin.com/in/gelso-schwertz/" class="text-3xl text-slate-400 hover:text-blue-400 transition"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/GelsoS" class="text-3xl text-slate-400 hover:text-white transition"><i class="fab fa-github"></i></a>
-        <a href="mailto:gelso.schwertz@email.com" class="text-3xl text-slate-400 hover:text-red-400 transition"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/gelso-schwertz/" class="text-2xl text-slate-400 hover:text-blue-400 transition"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/GelsoS" class="text-2xl text-slate-400 hover:text-white transition"><i class="fab fa-github"></i></a>
       </div>
-      <p class="text-slate-500 text-sm">© 2026 Gelso Schwertz. Desenvolvido com foco e paixão.</p>
+      <p class="text-slate-500 text-sm">© 2026 Gelso Schwertz. Todos os direitos reservados.</p>
     </div>
   </footer>
 </body>
