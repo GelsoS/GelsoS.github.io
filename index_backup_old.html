@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gelso's Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="img/images.png" type="image/x-icon" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Gelso Schwertz" />
+  <meta property="og:image" content="https://gelsos.github.io/img/gelso-removebg-preview.png" />
+  <meta property="og:image:width" content="480" />
+  <meta property="og:image:height" content="480" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:description" content="Portfolio de Gelso Schwertz" />
+  <meta property="og:url" content="https://gelso-schwertz.github.io" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+
+<body>
+  <header>
+    <div class="user">
+      <img src="img/gelso-removebg-preview.png" alt="Foto de Gelso" />
+      <div style="justify-content: center">
+        <h2 contenteditable="true">Gelso Schwertz</h2>
+        <span contenteditable="true">Desenvolvedor</span>
+      </div>
+    </div>
+  </header>
+  <canvas id="canvas"></canvas>
+  <main>
+    <div class="contato">
+      <a href="https://www.linkedin.com/in/gelso-schwertz/" target="_blank" class="social-link">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="https://github.com/GelsoS" target="_blank" class="social-link">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+    </div>
+    <div class="sobre" style="margin-bottom: 30px">
+      <fieldset>
+        <legend>Sobre mim</legend>
+        <p>
+          Desenvolvedor Fullstack, apaixonado pela área de tecnologia e em
+          busca de novos desafios. Com experiência em projetos web, sou capaz
+          de trabalhar em equipe para criar soluções inovadoras e de qualidade
+          para os usuários e/ou clientes.<br /><br />
+          Minhas principais habilidades incluem programação em JavaScript,
+          TypeScript, Python3, HTML, CSS, React, Node.js, MySQL e MongoDB.
+          <br /><br />Além disso, estou sempre aprendendo e buscando novas
+          tecnologias para me manter atualizado e melhorar meu desempenho
+          profissional. Se você procura um profissional dedicado e apaixonado
+          pela tecnologia, estou à disposição para colaborar com seus
+          projetos.
+        </p>
+        <div class="info">
+          <section id="curriculo">
+            <a href="Gelso.pdf" download>Baixar Currículum</a>
+          </section>
+          <section id="curriculo">
+            <a href="./certificates/index.html">Certificados</a>
+          </section>
+        </div>
+      </fieldset>
+      <div class="paginas">
+        <section class="irrf">
+          <a href="./calculator/index.html">calcular IRRF day trade</a>
+        </section>
+        <section class="irrf">
+          <a href="./tv/index.html" class="tv-link">
+            <i class="fas fa-tv"></i>
+          </a>
+        </section>
+        <section class="irrf">
+          <a href="./tubestatus/index.html">Youtubers status</a>
+        </section>
+        <section class="irrf">
+          <a href="./salao/index.html">salao de beleza</a>
+        </section>
+      </div>
+    </div>
+    <div class="destaque">
+      <h2><i class="fas fa-lightbulb"></i> <i><u>Projeto FullStack em destaque</u></i></h2>
+      <p>No fim do curso desenvolvi um site de classificados, utilizei <u>React.js, Node.js e MySQL</u>
+        atualmente venho melhorando a interface e adicionando novos recursos ao site. Esse projeto
+        é individual.</p><br>
+      <span class="notification">
+        <i class="fas fa-exclamation-triangle"></i>
+        <marquee behavior="scroll" direction="left">Atualmente estou trabalhando nesse site!!</marquee>
+        <i class="fas fa-exclamation-triangle"></i>
+      </span>
+      <div style="padding:75% 0 0 0;position:relative;"><iframe
+          src="https://player.vimeo.com/video/1016850463?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+          frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;" title="portalWeb-2024-10-06_17.51.07"></iframe>
+      </div>
+      <script src="https://player.vimeo.com/api/player.js"></script>
+    </div>
+    <h2><i>Projetos do curso</i></h2>
+    <details>
+      <summary class="tunes">Musicas</summary>
+      <p>
+        Neste projeto foi criado o <u>TrybeTunes</u>, uma aplicação capaz de
+        reproduzir músicas das mais variadas bandas e artistas, voce sera
+        capaz de:
+      </p>
+      <div class="ul">
+        <ul>
+          <li>Fazer login</li>
+          <li>Buscar por artistas e bandas</li>
+          <li>Buscar por músicas</li>
+          <li>Reproduzir músicas</li>
+          <li>Adicionar músicas a uma playlist</li>
+          <li>Remover músicas da playlist</li>
+          <li>Ver detalhes da música</li>
+        </ul>
+      </div>
+      <br />
+      <a href="https://trybe-tunes-puce.vercel.app/">TrybeTunes</a>
+      <div class="preview-container">
+        <iframe src="https://trybe-tunes-puce.vercel.app/" frameborder="0"></iframe>
+      </div>
+    </details>
+    <br />
+    <details>
+      <summary class="carteira">Wallet</summary>
+      <p>
+        Neste projeto, desenvolvi uma
+        <u>Carteira online</u> com um conversor de moedas. Utilizando esta
+        aplicação, um usuário deverá ser capaz de:
+      </p>
+      <br />
+      <div class="ul">
+        <ul>
+          <li>Adicionar, remover e editar um gasto.</li>
+          <li>Visualizar uma tabela com seus gastos.</li>
+          <li>
+            Visualizar o total de gastos convertidos para uma moeda de sua
+            escolha.
+          </li>
+        </ul>
+        <br />
+        <b>Habilidades utilizadas Durante o desenvolvimento deste projeto</b>
+        <ul>
+          <li>Criar um store Redux em aplicações React.</li>
+          <li>Criar reducers no Redux em aplicações React.</li>
+          <li>Criar actions no Redux em aplicações React.</li>
+          <li>Criar dispatchers no Redux em aplicações React.</li>
+          <li>Conectar Redux aos componentes React.</li>
+          <li>
+            Criar actions assíncronas na sua aplicação React que faz uso de
+            Redux.
+          </li>
+        </ul>
+      </div>
+      <br />
+      <a href="https://trybe-wallet-xi-three.vercel.app/">Trybe Wallet</a>
+      <div class="preview-container">
+        <iframe src="https://trybe-wallet-xi-three.vercel.app/" frameborder="0"></iframe>
+      </div>
+    </details>
+    <br />
+    <details>
+      <summary class="shop">Shop de carros</summary>
+      <p>
+        Neste projeto, desenvolvi uma aplicacao backend com TypeScript
+        <u>Shop de carros</u> onde foi aplicado os princípios de Programação
+        Orientada a Objetos (POO) para a construção de uma API com CRUD para
+        gerenciar uma concessionária de veículos. Isso foi feito utilizando o
+        banco de dados MongoDB através do framework do Mongoose.
+      </p>
+      <br />
+      <a href="https://github.com/GelsoS/CarShop">Car Shop</a><br /><br />
+      <img src="./img/CARSHOP.png" alt="carshop" width="300px" onclick="this.classList.toggle('fullscreen')" />
+      </div>
+    </details>
+    <br />
+    <details>
+      <summary class="solar">Sistema Solar</summary>
+      <p>
+        modelo do <u>sistema solar</u> com detalhes das missoes realizadas.
+      </p>
+      <br />
+      <a href="https://solar-system-seven-bice.vercel.app/">Sistema Solar</a><br /><br />
+      <div class="preview-container">
+        <iframe src="https://solar-system-seven-bice.vercel.app/" frameborder="0"></iframe>
+      </div>
+      </div>
+    </details>
+    <br />
+    <details>
+      <summary class="trivia">Trivia</summary>
+      <p>
+        Um jogo de perguntas e respostas baseado no jogo <u>Trivia</u>
+        (tipo um show do milhão americano rs) utilizando React e Redux.
+      </p>
+      <br />
+      <a href="https://trivia-snowy.vercel.app/">Trivia</a><br /><br />
+      <div class="preview-container">
+        <iframe src="https://trivia-snowy.vercel.app/" frameborder="0"></iframe>
+      </div>
+      </div>
+    </details><br />
+    <details>
+      <summary class="futbol">TFC</summary>
+      <p>
+        Aplicacao FullStack com TypeScript <u>🚧 TFC Trybe Futebol Clube! 🚧</u> é um site informativo sob partidas e
+        classificações de futebol! soccer.
+      </p><br>
+      <p>
+        Foi desenvolvido uma API (utilizando o método TDD) e também integrado -
+        através do docker-compose - as aplicações para que elas funcionem consumindo um banco de dados.
+      </p><br>
+      <p>
+        Nesse projeto, foi construido um back-end dockerizado utilizando modelagem de dados através do Sequelize.
+        O desenvolvimento respeita regras de negócio providas no projeto e sua API é capaz de ser consumida por
+        um front-end.
+      </p> <br>
+      <p>
+        Para adicionar uma partida é necessário ter um token, portanto a pessoa deverá
+        estar logada para fazer as alterações. Teremos um relacionamento entre as tabelas teams e matches para
+        fazer as atualizações das partidas.
+      </p> <br>
+      <p>
+        O back-end implementa regras de negócio para popular adequadamente a
+        tabela disponível no front-end que será exibida para a pessoa usuária do sistema.
+      </p>
+      <br />
+      <a href="https://github.com/GelsoS/TFC">TFC</a><br /><br />
+      <img src="./img/tfc.png" alt="carshop" width="300px" onclick="this.classList.toggle('fullscreen')" />
+      </div>
+    </details>
+    <br />
+    <details>
+      <summary class="delivery">App de Delivery</summary>
+      <p>
+        Projeto em grupo foi desenvolvido um app de delivery para uma distribuidora de bebidas.
+        Neste projeto, desenvolvido uma aplicacao fronted e backend
+        <u>App de Delivery</u> onde para a construção de uma API com CRUD utilizando sequelize.
+      </p>
+      <br />
+      <a href="https://github.com/GelsoS/delivery-app">App de Delivery</a><br /><br />
+      <img src="./img/delivery.png" width="300px" onclick="this.classList.toggle('fullscreen')" />
+      </div>
+    </details>
+    <br>
+    <details>
+      <summary class="recipes">Recipes App</summary>
+      <p>
+        Um app de receitas, utilizando o que há de mais moderno dentro do ecossistema React: Hooks e Context API! <br>
+        Nele será possível: ver, buscar, filtrar, favoritar e acompanhar o progresso de preparação de receitas e drinks!
+
+      </p>
+      <br /> <span>Habilidades utilizadas Durante o desenvolvimento deste projeto</span>
+      <div class="ul">
+        <ul>
+          <li>Redux para gerenciar estado</li>
+          <li>biblioteca React-Redux</li>
+          <li>Context API do React para gerenciar estado</li>
+          <li>React Hook useState</li>
+          <li>React Hook useContext</li>
+          <li>React Hook useEffect</li>
+          <li>Hooks customizados</li>
+        </ul>
+      </div>
+      <br />
+      <a href="https://recipes-app-kappa-tawny.vercel.app/">Recipes App</a>
+      <div class="preview-container">
+        <iframe src="https://recipes-app-kappa-tawny.vercel.app/" frameborder="0"></iframe>
+      </div>
+    </details>
+    <br />
+    <details>
+      <summary class="shop">Unit Tests</summary>
+      <p>
+        Testes unitarios com Jest
+      </p>
+      <br />
+      <a href="https://github.com/GelsoS/JsUnitTests">JS Unit Tests</a><br /><br />
+      <img src="./img/unitTest.png" alt="carshop" width="300px" onclick="this.classList.toggle('fullscreen')" />
+      </div>
+    </details>
+    <br />
+    <details>
+      <summary class="shop">React Testing Library</summary>
+      <p>
+        <u>React Testing Library (RTL)</u> é uma biblioteca popular para testar componentes React.
+        O objetivo do RTL é ajudar a escrever testes que se concentrem no comportamento do usuário em vez da
+        implementação
+        interna dos componentes. Isso incentiva práticas de teste mais robustas e ajuda a garantir que seu código esteja
+        alinhado com o que os usuários realmente experimentam.
+      </p>
+      <br />
+      <a href="https://rtl-jade.vercel.app/">Pokedex</a><br /><br />
+      <img src="./img/pokedex.png" alt="carshop" width="300px" onclick="this.classList.toggle('fullscreen')" />
+      </div>
+    </details>
+    <br />
+    <br />
+    <h2><i>Projetos Vanilla</i></h2>
+    <section class="projetos">
+
+      <div class="projeto">
+        <img src="img/jogo.png" alt="conversor" />
+        <a href="jogo/index.html">jogo da velha</a>
+      </div>
+      <div class="projeto">
+        <img src="img/conversor.png" alt="conversor" />
+        <a href="conversorBases/index.html">switch numbers</a>
+      </div>
+      <div class="projeto">
+        <img src="img/matrix.png" alt="conversor" />
+        <a href="matrix/index.html">Matrix</a>
+      </div>
+      <div class="projeto">
+        <img src="img/romanos.png" alt="conversor" />
+        <a href="converter/index.html">numeros romanos</a>
+      </div>
+
+    </section>
+    <h2><i>Projetos com Python</i></h2>
+    <section style="display: flex" class="py">
+      <div>
+        <div class="projeto vd">
+          <iframe class="video" src="https://www.youtube.com/embed/a6wWS_hVArc" title="organizar diretórios automático"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <section>
+            <a href="https://mega.nz/folder/9gJxAADB#NOGnc8vjKDUQpdDDvcbFTg" target="_blank" download>Baixar
+              aplicativo</a>
+          </section>
+        </div>
+      </div>
+      <div class="projeto Python">
+        <img class="app" src="img/rem.jpeg" alt="conversor" onclick="this.classList.toggle('fullscreen')" />
+        <a href="https://github.com/GelsoS/clearpasword">remover senha PDF</a>
+      </div>
+
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2024 Gelso. Todos os direitos reservados.</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>
